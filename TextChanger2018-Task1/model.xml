@@ -5,6 +5,7 @@
         <and abstract="true" mandatory="true" name="TextModifier2018-Task1">
             <description>
 A Program with the following possible operation (all are independent and optional):
+-Access by an GUI instead of the terminal
 -Simple modification (like reverse text and ROT13)
 -En/Decrypt (Aes, DES, IDEA)
 -RamdomGenerator (numbers, letters, both; length given in arguments)
@@ -103,19 +104,57 @@ Requires GUI.
 Provides an Random Generator.
 It can create Ramdom Numbers, Random Letters or both at the same time.
 A length of the created string has to be given.
-
 </description>
-                <feature name="RandomNumbers"/>
-                <feature name="RandomLetters"/>
-                <feature name="RandomString"/>
+                <feature name="RandomNumbers">
+                    <description>
+Returns a random string with numbers of given length.
+</description>
+                </feature>
+                <feature name="RandomLetters">
+                    <description>
+Returns a random string with letters of given length.
+</description>
+                </feature>
+                <feature name="RandomString">
+                    <description>
+Returns a random string with numbers and letters of given length.
+</description>
+                </feature>
             </and>
             <and abstract="true" name="Hash Function">
-                <feature name="SHA512"/>
-                <feature name="MD5"/>
+                <description>
+Generates the hast calue of an input.
+It can be choosen between different hash algorithms.
+</description>
+                <feature name="SHA256">
+                    <description>
+Hashes the input with SHA256
+
+For info to MD5 see https://en.wikipedia.org/wiki/SHA-2
+</description>
+                </feature>
+                <feature name="MD5">
+                    <description>
+Hashes the input with MD5.
+
+For info to MD5 see https://en.wikipedia.org/wiki/MD5
+</description>
+                </feature>
             </and>
             <and abstract="true" name="Statistics">
-                <feature name="CountSymbols"/>
-                <feature name="CountSymbolAppearance"/>
+                <description>
+Creates various statistics to the given input.
+</description>
+                <feature name="CountSymbols">
+                    <description>
+Counts the number of given symbols.
+</description>
+                </feature>
+                <feature name="CountSymbolAppearance">
+                    <description>
+Counts how often each symbol appears.
+</description>
+                </feature>
             </and>
             <feature name="GUI"/>
         </and>
