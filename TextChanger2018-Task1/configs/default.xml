@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="TextModifier2018-Task1"/>
+    <feature automatic="selected" name="Input"/>
+    <feature automatic="selected" name="In-Console"/>
+    <feature automatic="selected" name="Output"/>
+    <feature automatic="selected" name="Out-Console"/>
+</configuration>
