@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="TextModifier2018-Task1"/>
+    <feature automatic="selected" manual="selected" name="EnDeCrypt"/>
+    <feature manual="selected" name="AES"/>
+    <feature manual="selected" name="DES"/>
+    <feature manual="selected" name="IDEA"/>
+    <feature automatic="selected" name="Input"/>
+    <feature automatic="selected" name="In-Console"/>
+    <feature manual="selected" name="In-Textfield"/>
+    <feature automatic="selected" name="Output"/>
+    <feature automatic="selected" name="Out-Console"/>
+    <feature manual="selected" name="Out-Textfield"/>
+    <feature automatic="selected" name="RandomGenerator"/>
+    <feature manual="selected" name="RandomNumbers"/>
+    <feature manual="selected" name="RandomLetters"/>
+    <feature manual="selected" name="RandomString"/>
+    <feature automatic="selected" name="GUI"/>
+</configuration>
