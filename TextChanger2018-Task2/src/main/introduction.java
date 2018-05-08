@@ -16,7 +16,7 @@ public class introduction {
 	
 	static String license() {
 		
-		String seperator = System.getProperty("line.separator");
+		final String seperator = System.getProperty("line.separator");
 		
 		String license = "This program is free software: you can redistribute it and/or modify" + seperator
 				+ "it under the terms of the GNU General Public License as published by" + seperator

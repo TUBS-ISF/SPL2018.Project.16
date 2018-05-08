@@ -9,7 +9,7 @@
     <feature manual="selected" name="RandomNumber"/>
     <feature manual="selected" name="RandomLetters"/>
     <feature manual="selected" name="RandomString"/>
-    <feature automatic="selected" manual="selected" name="Hash Function"/>
+    <feature automatic="selected" manual="selected" name="HashFunction"/>
     <feature manual="selected" name="SHA256"/>
     <feature manual="selected" name="MD5"/>
 </configuration>

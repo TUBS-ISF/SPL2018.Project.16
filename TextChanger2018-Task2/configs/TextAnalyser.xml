@@ -7,7 +7,7 @@
     <feature automatic="selected" name="Output"/>
     <feature automatic="selected" name="Out_Console"/>
     <feature manual="selected" name="Out_Textfield"/>
-    <feature automatic="selected" name="Hash Function"/>
+    <feature automatic="selected" name="HashFunction"/>
     <feature manual="selected" name="SHA256"/>
     <feature manual="selected" name="MD5"/>
     <feature automatic="selected" name="Statistics"/>

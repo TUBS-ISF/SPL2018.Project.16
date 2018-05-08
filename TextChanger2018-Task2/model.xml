@@ -121,7 +121,7 @@ Returns a random string with numbers and letters of given length.
 </description>
                 </feature>
             </and>
-            <and abstract="true" name="Hash Function">
+            <and abstract="true" name="HashFunction">
                 <description>
 Generates the hast calue of an input.
 It can be choosen between different hash algorithms.
