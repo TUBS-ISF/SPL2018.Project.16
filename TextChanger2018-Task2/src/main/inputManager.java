@@ -12,13 +12,12 @@ public class inputManager {
 	}
 	
 	/*
-	static String readContent(String input, int number) {
-		
-		String content = input.substring(number);
-				
-		return content;
-	}
-	*/
+	 * static String readContent(String input, int number) {
+	 * 
+	 * String content = input.substring(number);
+	 * 
+	 * return content; }
+	 */
 	
 	static String manage(String input) {
 		
@@ -98,12 +97,12 @@ public class inputManager {
 			return result;
 			
 		}
-			
-		if (operation.equals("md5") && Available.MD5()) {
+		
+		if (operation.equalsIgnoreCase("md5") && Available.MD5()) {
 			
 			try {
 				String content = readParameter(input, 1);
-
+				
 				result = hashFunction.MD5.hash(content);
 				
 			} catch (ArrayIndexOutOfBoundsException e) {
@@ -111,6 +110,20 @@ public class inputManager {
 			}
 			
 			return result;
+		}
+		
+		if (operation.equals("countsymbols") && Available.CountSymbols()) {
+			
+			try {
+				String content = readParameter(input, 1);
+				
+				result = statistics.CountSymbols.count(content);
+				
+				return result;
+				
+			} catch (ArrayIndexOutOfBoundsException e) {
+				result = "Error: Missing Argument: Nothing given to calculate the length of.";
+			}
 		}
 		
 		result = "Unknown command '" + operation + "'. Type 'help' for a list of all allowed operators.";
