@@ -11,14 +11,6 @@ public class inputManager {
 		
 	}
 	
-	/*
-	 * static String readContent(String input, int number) {
-	 * 
-	 * String content = input.substring(number);
-	 * 
-	 * return content; }
-	 */
-	
 	static String manage(String input) {
 		
 		// initialise empty String for result.
@@ -27,26 +19,23 @@ public class inputManager {
 		// saves operation in parameter 'operation'
 		String operation = readParameter(input, 0);
 		
-		// variable 'operation' is made lowercase to ignore uppercase/lowercase in input
-		operation = operation.toLowerCase();
-		
-		if (operation.equals("exit") || operation.equals("quit")) {
+		if (operation.equalsIgnoreCase("exit") || operation.equalsIgnoreCase("quit") || operation.equalsIgnoreCase("q")) {
 			WriteOutput.write("Exit Program.");
 			System.exit(0);
 		}
 		
-		if (operation.equals("license")) {
+		if (operation.equalsIgnoreCase("license")) {
 			result = introduction.license();
 			return result;
 		}
 		
-		if (operation.equals("help")) {
+		if (operation.equalsIgnoreCase("help")) {
 			Help.help();
 			result = "";
 			return result;
 		}
 		
-		if (operation.equals("uppercase") && Available.UpperCase()) {
+		if (operation.equalsIgnoreCase("uppercase") && Available.UpperCase()) {
 			
 			try {
 				String content = readParameter(input, 1);
@@ -60,7 +49,7 @@ public class inputManager {
 			return result;
 		}
 		
-		if (operation.equals("lowercase") && Available.LowerCase()) {
+		if (operation.equalsIgnoreCase("lowercase") && Available.LowerCase()) {
 			
 			try {
 				String content = readParameter(input, 1);
@@ -75,7 +64,7 @@ public class inputManager {
 			
 		}
 		
-		if (operation.equals("randomnumber") && Available.RandomNumber()) {
+		if (operation.equalsIgnoreCase("randomnumber") && Available.RandomNumber()) {
 			
 			try {
 				String lengthStr = readParameter(input, 1);
@@ -112,7 +101,7 @@ public class inputManager {
 			return result;
 		}
 		
-		if (operation.equals("countsymbols") && Available.CountSymbols()) {
+		if (operation.equalsIgnoreCase("countsymbols") && Available.CountSymbols()) {
 			
 			try {
 				String content = readParameter(input, 1);

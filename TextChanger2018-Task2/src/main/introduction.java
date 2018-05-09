@@ -6,7 +6,7 @@ public class introduction {
 		
 		String text1 = "Welcome to TextChanger2018!";
 		String text2 = "For a list of all possible functions type 'help'. For Information about the license type 'license'.";
-		String text3 = "To exit the program type 'exit' or 'quit'";
+		String text3 = "To exit the program type 'exit' or 'quit' or 'q'.";
 		
 		WriteOutput.write(text1);
 		WriteOutput.write(text2);

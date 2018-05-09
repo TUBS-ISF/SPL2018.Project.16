@@ -2,18 +2,6 @@ package main;
 
 public class Help {
 	
-	/*
-	 * private static void helpFormat(String name, String description, String usage)
-	 * {
-	 * 
-	 * int nameLength = name.length();
-	 * 
-	 * String tabs2 = "\t\t";
-	 * 
-	 * WriteOutput.write(name + "\t" + description); WriteOutput.write(tabs2 +
-	 * "Usage: " + usage); WriteOutput.write(""); }
-	 */
-	
 	public static void help() {
 		WriteOutput.write("This is an overview of all possible arguments:");
 		WriteOutput.write("Note: 'input' stands for any input.");
@@ -24,7 +12,7 @@ public class Help {
 		
 		WriteOutput.write("help: Shows this page ;).");
 		WriteOutput.write("license: Shows the license (GPLv3).");
-		WriteOutput.write("exit/quit: closes the program.");
+		WriteOutput.write("exit/quit/q: closes the program.");
 		WriteOutput.write("");
 		
 		if (Available.ROT13()) {
