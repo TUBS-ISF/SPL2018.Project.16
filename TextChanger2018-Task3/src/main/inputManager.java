@@ -35,6 +35,7 @@ public class inputManager {
 			return result;
 		}
 		
+		// #if UpperCase
 		if (operation.equalsIgnoreCase("uppercase") && Available.UpperCase()) {
 			
 			try {
@@ -48,7 +49,9 @@ public class inputManager {
 			
 			return result;
 		}
+		// #endif
 		
+		// #if LowerCase
 		if (operation.equalsIgnoreCase("lowercase") && Available.LowerCase()) {
 			
 			try {
@@ -63,7 +66,9 @@ public class inputManager {
 			return result;
 			
 		}
+		// #endif
 		
+		// #if RandomNumber
 		if (operation.equalsIgnoreCase("randomnumber") && Available.RandomNumber()) {
 			
 			try {
@@ -86,7 +91,9 @@ public class inputManager {
 			return result;
 			
 		}
+		// #endif
 		
+		// #if MD5
 		if (operation.equalsIgnoreCase("md5") && Available.MD5()) {
 			
 			try {
@@ -100,7 +107,9 @@ public class inputManager {
 			
 			return result;
 		}
+		// #endif
 		
+		// #if CountSymbols
 		if (operation.equalsIgnoreCase("countsymbols") && Available.CountSymbols()) {
 			
 			try {
@@ -114,6 +123,7 @@ public class inputManager {
 				result = "Error: Missing Argument: Nothing given to calculate the length of.";
 			}
 		}
+		// #endif
 		
 		result = "Unknown command '" + operation + "'. Type 'help' for a list of all allowed operators.";
 		
