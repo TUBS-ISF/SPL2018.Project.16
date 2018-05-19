@@ -36,7 +36,7 @@ public class inputManager {
 		}
 		
 		// #if UpperCase
-		if (operation.equalsIgnoreCase("uppercase") && Available.UpperCase()) {
+		if (operation.equalsIgnoreCase("uppercase")) {
 			
 			try {
 				String content = readParameter(input, 1);
@@ -52,7 +52,7 @@ public class inputManager {
 		// #endif
 		
 		// #if LowerCase
-		if (operation.equalsIgnoreCase("lowercase") && Available.LowerCase()) {
+		if (operation.equalsIgnoreCase("lowercase")) {
 			
 			try {
 				String content = readParameter(input, 1);
@@ -69,7 +69,7 @@ public class inputManager {
 		// #endif
 		
 		// #if RandomNumber
-		if (operation.equalsIgnoreCase("randomnumber") && Available.RandomNumber()) {
+		if (operation.equalsIgnoreCase("randomnumber")) {
 			
 			try {
 				String lengthStr = readParameter(input, 1);
@@ -94,7 +94,7 @@ public class inputManager {
 		// #endif
 		
 		// #if MD5
-		if (operation.equalsIgnoreCase("md5") && Available.MD5()) {
+		if (operation.equalsIgnoreCase("md5")) {
 			
 			try {
 				String content = readParameter(input, 1);
@@ -110,7 +110,7 @@ public class inputManager {
 		// #endif
 		
 		// #if CountSymbols
-		if (operation.equalsIgnoreCase("countsymbols") && Available.CountSymbols()) {
+		if (operation.equalsIgnoreCase("countsymbols")) {
 			
 			try {
 				String content = readParameter(input, 1);
