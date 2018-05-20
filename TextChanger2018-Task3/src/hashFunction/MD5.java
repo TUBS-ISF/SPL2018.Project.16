@@ -6,6 +6,13 @@ import javax.xml.bind.DatatypeConverter;
 
 public class MD5 {
 	
+	/**
+	 * This class gets an String for input and returns the MD5 hash.
+	 * 
+	 * @param input
+	 *        String to hash
+	 * @return String hashed with MD5
+	 */
 	public static String hash(String input) {
 		
 		try {

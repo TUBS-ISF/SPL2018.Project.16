@@ -2,7 +2,15 @@ package main;
 
 public class inputManager {
 	
-	// method to give the parameter of an goven position
+	/**
+	 * Reads the parameter on the given position and returns it.
+	 * 
+	 * @param input
+	 *        Input String
+	 * @param number
+	 *        The position of the desired parameter.
+	 * @return The parameter on the desired position.
+	 */
 	static String readParameter(String input, int number) {
 		
 		String parameter = input.split("\\s+")[number];
@@ -11,6 +19,16 @@ public class inputManager {
 		
 	}
 	
+	/**
+	 * This method (a *very* inportant method!) reads the input of the given
+	 * String (read from the console), extracts the first parameter which
+	 * describes the desired action and executes it.
+	 * The result (a String) is returned.
+	 * 
+	 * @param input
+	 *        The String read from the console.
+	 * @return The calculated result.
+	 */
 	static String manage(String input) {
 		
 		// initialise empty String for result.
@@ -19,7 +37,9 @@ public class inputManager {
 		// saves operation in parameter 'operation'
 		String operation = readParameter(input, 0);
 		
-		if (operation.equalsIgnoreCase("exit") || operation.equalsIgnoreCase("quit") || operation.equalsIgnoreCase("q")) {
+		if (operation.equalsIgnoreCase("exit")
+				|| operation.equalsIgnoreCase("quit")
+				|| operation.equalsIgnoreCase("q")) {
 			WriteOutput.write("Exit Program.");
 			System.exit(0);
 		}
@@ -80,8 +100,8 @@ public class inputManager {
 					result = randomGenerator.RandomNumber.calculate(lengthInt);
 					
 				} catch (NumberFormatException e) {
-					result = "Error: Wrong Argument: Length of random number was not an number. (Given: \"" + lengthStr
-							+ "\")";
+					result = "Error: Wrong Argument: Length of random number was not an number. (Given: \""
+							+ lengthStr + "\")";
 				}
 				
 			} catch (ArrayIndexOutOfBoundsException e) {
@@ -125,7 +145,8 @@ public class inputManager {
 		}
 		// #endif
 		
-		result = "Unknown command '" + operation + "'. Type 'help' for a list of all allowed operators.";
+		result = "Unknown command '" + operation
+				+ "'. Type 'help' for a list of all allowed operators.";
 		
 		return result;
 		
