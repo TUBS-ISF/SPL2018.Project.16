@@ -1,3 +1,4 @@
+// #if LowerCase
 package simpleModifier;
 
 public class lowerCase {
@@ -17,3 +18,4 @@ public class lowerCase {
 		
 	}
 }
+// #endif

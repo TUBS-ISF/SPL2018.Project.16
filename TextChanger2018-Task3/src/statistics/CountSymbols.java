@@ -1,3 +1,4 @@
+// #if CountSymbols
 package statistics;
 
 public class CountSymbols {
@@ -21,3 +22,4 @@ public class CountSymbols {
 		return resultString;
 	}
 }
+// #endif

@@ -1,3 +1,4 @@
+// #if UpperCase
 package simpleModifier;
 
 public class upperCase {
@@ -17,3 +18,4 @@ public class upperCase {
 		
 	}
 }
+// #endif

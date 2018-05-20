@@ -1,3 +1,4 @@
+// #if MD5
 package hashFunction;
 
 import java.security.MessageDigest;
@@ -36,3 +37,4 @@ public class MD5 {
 		}
 	}
 }
+// #endif
