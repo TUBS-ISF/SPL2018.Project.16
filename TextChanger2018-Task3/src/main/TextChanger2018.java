@@ -4,7 +4,7 @@ public class TextChanger2018 {
 	
 	public static void main(String[] args) {
 		
-		introduction.introduce();
+		Texts.introduce();
 		
 		while (true) {
 			String input = ReadInput.read();

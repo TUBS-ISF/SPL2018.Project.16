@@ -25,12 +25,12 @@ public class inputManager {
 		}
 		
 		if (operation.equalsIgnoreCase("license")) {
-			result = introduction.license();
+			result = Texts.license();
 			return result;
 		}
 		
 		if (operation.equalsIgnoreCase("help")) {
-			Help.help();
+			Texts.help();
 			result = "";
 			return result;
 		}
