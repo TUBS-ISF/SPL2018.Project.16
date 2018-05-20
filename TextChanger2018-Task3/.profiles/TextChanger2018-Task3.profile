@@ -1,4 +1,5 @@
 true
+ROT13=Orange
 UpperCase=Orange
 LowerCase=Orange
 CountSymbols=Magenta

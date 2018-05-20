@@ -16,7 +16,7 @@ A Program with the following possible operation (all are independent and optiona
                 <description>
 Simple modifications for the given text.
 </description>
-                <feature abstract="true" name="ROT13">
+                <feature name="ROT13">
                     <description>
 Does a "ROT13" conversion.
 For info about ROT13 see https://en.wikipedia.org/wiki/ROT13

@@ -145,6 +145,23 @@ public class inputManager {
 		}
 		// #endif
 		
+		// #if ROT13
+		if (operation.equalsIgnoreCase("rot13")) {
+			
+			try {
+				String content = readParameter(input, 1);
+				
+				result = enDeCrypt.ROT13.calculate(content);
+				
+				return result;
+				
+			} catch (ArrayIndexOutOfBoundsException e) {
+				result = "Error: Missing Argument: Nothing given to encrypt/decrypt to/from ROT13.";
+			}
+			
+		}
+		// #endif
+		
 		result = "Unknown command '" + operation
 				+ "'. Type 'help' for a list of all allowed operators.";
 		
