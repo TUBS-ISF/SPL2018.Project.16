@@ -1,3 +1,4 @@
+// #if ROT13
 package enDeCrypt;
 
 public class ROT13 {
@@ -34,3 +35,4 @@ public class ROT13 {
 	}
 	
 }
+// #endif
