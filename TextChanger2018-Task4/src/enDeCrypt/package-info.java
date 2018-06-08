@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author Jan
- *
- */
-package enDeCrypt;
