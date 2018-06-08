@@ -1,4 +1,3 @@
-// #if LowerCase
 package simpleModifier;
 
 public class lowerCase {
@@ -10,7 +9,7 @@ public class lowerCase {
 	 *        String which should be made lowercase
 	 * @return Input, but everything lowercase.
 	 */
-	public static String make(String input) {
+	public static String calculate(String input) {
 		
 		String inputLower = input.toLowerCase();
 		
@@ -18,4 +17,3 @@ public class lowerCase {
 		
 	}
 }
-// #endif

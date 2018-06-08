@@ -1,7 +1,6 @@
-// #if UpperCase
 package simpleModifier;
 
-public class upperCase implements interfaces.OneArgument {
+public class upperCase {
 	
 	/**
 	 * This class makes the input lowercase.
@@ -10,7 +9,7 @@ public class upperCase implements interfaces.OneArgument {
 	 *        String which should be made lowercase
 	 * @return Input, but everything lowercase.
 	 */
-	public static String make(String input) {
+	public static String calculate(String input) {
 		
 		String inputUpper = input.toUpperCase();
 		
@@ -18,10 +17,4 @@ public class upperCase implements interfaces.OneArgument {
 		
 	}
 	
-	@Override
-	public String OneArgumentOne(String input) {
-		
-		return make(input);
-	}
 }
-// #endif

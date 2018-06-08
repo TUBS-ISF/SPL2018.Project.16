@@ -1,4 +1,3 @@
-// #if MD5
 package hashFunction;
 
 import java.security.MessageDigest;
@@ -14,7 +13,7 @@ public class MD5 {
 	 *        String to hash
 	 * @return String hashed with MD5
 	 */
-	public static String hash(String input) {
+	public static String calculate(String input) {
 		
 		try {
 			// ready md
@@ -37,4 +36,3 @@ public class MD5 {
 		}
 	}
 }
-// #endif

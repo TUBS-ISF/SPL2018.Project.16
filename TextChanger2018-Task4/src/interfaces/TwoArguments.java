@@ -1,11 +1,5 @@
-/**
- * 
- */
 package interfaces;
 
-/**
- *
- */
 public interface TwoArguments {
 	
 	public String TwoArgumentsOne();

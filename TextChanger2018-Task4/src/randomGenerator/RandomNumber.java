@@ -1,4 +1,3 @@
-// #if RandomGenerator
 package randomGenerator;
 
 import java.security.SecureRandom;
@@ -35,4 +34,3 @@ public class RandomNumber {
 		
 	}
 }
-// #endif

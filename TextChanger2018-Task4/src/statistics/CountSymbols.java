@@ -1,4 +1,3 @@
-// #if CountSymbols
 package statistics;
 
 public class CountSymbols {
@@ -10,7 +9,7 @@ public class CountSymbols {
 	 *        The input to be count.
 	 * @return Number of symbols in the input.
 	 */
-	public static String count(String input) {
+	public static String calculate(String input) {
 		
 		// calculate the length of the input
 		int resultInt = input.length();
@@ -22,4 +21,3 @@ public class CountSymbols {
 		return resultString;
 	}
 }
-// #endif

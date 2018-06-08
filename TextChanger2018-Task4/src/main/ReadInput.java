@@ -17,13 +17,9 @@ public class ReadInput {
 		
 		System.out.print("Input: ");
 		
-		// while (true) {
-		
 		input = inputScanner.nextLine();
-		// inputScanner.close();
 		
 		return input;
-		// }
 		
 	}
 	

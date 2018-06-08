@@ -72,13 +72,12 @@ public class inputManager {
 			return result;
 		}
 		
-		// #if UpperCase
 		if (operation.equalsIgnoreCase("uppercase")) {
 			
 			try {
 				String content = readParameter(input, 1);
 				
-				result = simpleModifier.upperCase.make(content);
+				result = simpleModifier.upperCase.calculate(content);
 				
 			} catch (ArrayIndexOutOfBoundsException e) {
 				result = "Error: Missing Argument: Nothing to make UpperCase found.";
@@ -86,15 +85,13 @@ public class inputManager {
 			
 			return result;
 		}
-		// #endif
 		
-		// #if LowerCase
 		if (operation.equalsIgnoreCase("lowercase")) {
 			
 			try {
 				String content = readParameter(input, 1);
 				
-				result = simpleModifier.lowerCase.make(content);
+				result = simpleModifier.lowerCase.calculate(content);
 				
 			} catch (ArrayIndexOutOfBoundsException e) {
 				result = "Error: Missing Argument: Nothing to make LowerCase found.";
@@ -103,9 +100,7 @@ public class inputManager {
 			return result;
 			
 		}
-		// #endif
 		
-		// #if RandomNumber
 		if (operation.equalsIgnoreCase("randomnumber")) {
 			
 			try {
@@ -128,15 +123,13 @@ public class inputManager {
 			return result;
 			
 		}
-		// #endif
 		
-		// #if MD5
 		if (operation.equalsIgnoreCase("md5")) {
 			
 			try {
 				String content = readParameter(input, 1);
 				
-				result = hashFunction.MD5.hash(content);
+				result = hashFunction.MD5.calculate(content);
 				
 			} catch (ArrayIndexOutOfBoundsException e) {
 				result = "Error: Missing Argument: Nothing given to hash with MD5.";
@@ -144,15 +137,13 @@ public class inputManager {
 			
 			return result;
 		}
-		// #endif
 		
-		// #if CountSymbols
 		if (operation.equalsIgnoreCase("countsymbols")) {
 			
 			try {
 				String content = readParameter(input, 1);
 				
-				result = statistics.CountSymbols.count(content);
+				result = statistics.CountSymbols.calculate(content);
 				
 				return result;
 				
@@ -160,9 +151,7 @@ public class inputManager {
 				result = "Error: Missing Argument: Nothing given to calculate the length of.";
 			}
 		}
-		// #endif
 		
-		// #if ROT13
 		if (operation.equalsIgnoreCase("rot13")) {
 			
 			try {
@@ -177,7 +166,6 @@ public class inputManager {
 			}
 			
 		}
-		// #endif
 		
 		result = "Unknown command '" + operation
 				+ "'. Type 'help' for a list of all allowed operators.";
