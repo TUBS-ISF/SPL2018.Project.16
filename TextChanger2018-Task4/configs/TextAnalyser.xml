@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="TextModifier2018-Task1"/>
+    <feature automatic="selected" name="Input"/>
+    <feature automatic="selected" name="In_Console"/>
+    <feature manual="selected" name="In_Textfield"/>
+    <feature automatic="selected" name="Output"/>
+    <feature automatic="selected" name="Out_Console"/>
+    <feature manual="selected" name="Out_Textfield"/>
+    <feature automatic="selected" name="HashFunction"/>
+    <feature manual="selected" name="SHA256"/>
+    <feature manual="selected" name="MD5"/>
+    <feature automatic="selected" name="Statistics"/>
+    <feature manual="selected" name="CountSymbols"/>
+    <feature manual="selected" name="CountSymbolAppearance"/>
+    <feature automatic="selected" name="GUI"/>
+</configuration>
