@@ -1,6 +1,6 @@
 package simpleModifier;
 
-public class lowerCase {
+public class lowerCase implements interfaces.TwoArguments {
 	
 	/**
 	 * This class makes the input lowercase.
@@ -9,7 +9,8 @@ public class lowerCase {
 	 *        String which should be made lowercase
 	 * @return Input, but everything lowercase.
 	 */
-	public static String calculate(String input) {
+	@Override
+	public String calculate(String input) {
 		
 		String inputLower = input.toLowerCase();
 		

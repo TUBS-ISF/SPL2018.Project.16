@@ -1,5 +1,8 @@
 package main;
 
+import interfaces.TwoArguments;
+import interfaces.ThreeArguments;
+
 public class inputManager {
 	
 	/**
@@ -12,11 +15,8 @@ public class inputManager {
 	 * @return The parameter on the desired position.
 	 */
 	static String readParameter(String input, int number) {
-		
 		String parameter = input.split("\\s+")[number];
-		
 		return parameter;
-		
 	}
 	
 	/**
@@ -27,11 +27,8 @@ public class inputManager {
 	 * @return The number of Arguments in the given input.
 	 */
 	static int countInputArguments(String input) {
-		
 		int numberOfArguments = input.split("\\s+").length;
-		
 		return numberOfArguments;
-		
 	}
 	
 	/**
@@ -46,30 +43,60 @@ public class inputManager {
 	 */
 	static String manage(String input) {
 		
-		int numberArguments = countInputArguments(input);
-		
 		// initialise empty String for result.
 		String result = "Error: If you see this message, something went wrong.";
 		
 		// saves operation in parameter 'operation'
 		String operation = readParameter(input, 0);
 		
-		if (operation.equalsIgnoreCase("exit")
-				|| operation.equalsIgnoreCase("quit")
-				|| operation.equalsIgnoreCase("q")) {
-			WriteOutput.write("Exit Program.");
-			System.exit(0);
-		}
+		int numberArguments = countInputArguments(input);
 		
-		if (operation.equalsIgnoreCase("license")) {
-			result = Texts.license();
-			return result;
-		}
-		
-		if (operation.equalsIgnoreCase("help")) {
-			Texts.help();
-			result = "";
-			return result;
+		// TODO: Implement function to check for wrong number of arguments for
+		// function?
+		switch (numberArguments) {
+			
+			case 0: {
+				result = "Error: No input given.";
+				break;
+			}
+			
+			case 1: {
+				if (operation.equalsIgnoreCase("exit")
+						|| operation.equalsIgnoreCase("quit")
+						|| operation.equalsIgnoreCase("q")) {
+					WriteOutput.write("Exit Program.");
+					System.exit(0);
+				}
+				
+				if (operation.equalsIgnoreCase("license")) {
+					result = Texts.license();
+					return result;
+				}
+				
+				if (operation.equalsIgnoreCase("help")) {
+					Texts.help();
+					result = "";
+					return result;
+				}
+				break;
+			}
+			
+			case 2: {
+				String ArgumentOne = readParameter(input, 0);
+				String ArgumentTwo = readParameter(input, 1);
+				result = ManageTwoArguments.start(ArgumentOne, ArgumentTwo);
+				break;
+			}
+			
+			case 3: {
+				// TODO Fill this.
+				break;
+			}
+			
+			default: {
+				result = "Illegal number of arguments. Number of arguments given: "
+						+ numberArguments;
+			}
 		}
 		
 		if (operation.equalsIgnoreCase("uppercase")) {
