@@ -1,6 +1,6 @@
 package statistics;
 
-public class CountSymbols {
+public class CountSymbols implements interfaces.OneArguments {
 	
 	/**
 	 * This class counts the number of symbols of the input.
@@ -9,7 +9,8 @@ public class CountSymbols {
 	 *        The input to be count.
 	 * @return Number of symbols in the input.
 	 */
-	public static String calculate(String input) {
+	@Override
+	public String calculate(String input) {
 		
 		// calculate the length of the input
 		int resultInt = input.length();

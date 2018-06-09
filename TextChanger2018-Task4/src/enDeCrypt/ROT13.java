@@ -1,6 +1,6 @@
 package enDeCrypt;
 
-public class ROT13 {
+public class ROT13 implements interfaces.OneArguments {
 	/**
 	 * This classgets an String and calculates the ROT13 result.
 	 * 
@@ -8,7 +8,8 @@ public class ROT13 {
 	 *        The String to be processed.
 	 * @return The result.
 	 */
-	public static String calculate(String input) {
+	@Override
+	public String calculate(String input) {
 		
 		String result = "";
 		

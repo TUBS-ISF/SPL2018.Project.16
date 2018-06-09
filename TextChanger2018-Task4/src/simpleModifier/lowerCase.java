@@ -1,6 +1,6 @@
 package simpleModifier;
 
-public class lowerCase implements interfaces.TwoArguments {
+public class lowerCase implements interfaces.OneArguments {
 	
 	/**
 	 * This class makes the input lowercase.
@@ -17,4 +17,5 @@ public class lowerCase implements interfaces.TwoArguments {
 		return inputLower;
 		
 	}
+	
 }

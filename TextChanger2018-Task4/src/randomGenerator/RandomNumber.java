@@ -2,7 +2,7 @@ package randomGenerator;
 
 import java.security.SecureRandom;
 
-public class RandomNumber {
+public class RandomNumber implements interfaces.OneArguments {
 	
 	/**
 	 * This class calculated an random number of given length.
@@ -11,7 +11,24 @@ public class RandomNumber {
 	 *        The length (number of digits) of the desired random number
 	 * @return
 	 */
-	public static String calculate(int length) {
+	@Override
+	public String calculate(String lengthStr) {
+		
+		int length = 0;
+		
+		// convert the string to int. Checks if the input was a number at all.
+		try {
+			length = Integer.parseInt(lengthStr);
+			
+		} catch (NumberFormatException e) {
+			return "Error: Wrong Argument: Length of random number was not an number. (Given: \""
+					+ lengthStr + "\")";
+		}
+		
+		// rause warning if a nummber of length '0' was requested.
+		if (length == 0) {
+			return "Error: Wrong Argument: Length of random number was defines as '0'.";
+		}
 		
 		// calculates a random number in SecureRandom format.
 		SecureRandom secran = new SecureRandom();

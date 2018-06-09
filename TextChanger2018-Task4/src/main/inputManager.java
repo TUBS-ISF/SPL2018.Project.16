@@ -1,6 +1,6 @@
 package main;
 
-import interfaces.TwoArguments;
+import interfaces.OneArguments;
 import interfaces.ThreeArguments;
 
 public class inputManager {
@@ -57,7 +57,7 @@ public class inputManager {
 			
 			case 0: {
 				result = "Error: No input given.";
-				break;
+				return result;
 			}
 			
 			case 1: {
@@ -84,21 +84,24 @@ public class inputManager {
 			case 2: {
 				String ArgumentOne = readParameter(input, 0);
 				String ArgumentTwo = readParameter(input, 1);
-				result = ManageTwoArguments.start(ArgumentOne, ArgumentTwo);
-				break;
+				result = ManageOneArgument.start(ArgumentOne, ArgumentTwo);
+				return result;
 			}
 			
 			case 3: {
 				// TODO Fill this.
-				break;
+				return result;
 			}
 			
 			default: {
 				result = "Illegal number of arguments. Number of arguments given: "
 						+ numberArguments;
+				
+				return result;
 			}
 		}
 		
+		/*
 		if (operation.equalsIgnoreCase("uppercase")) {
 			
 			try {
@@ -112,13 +115,15 @@ public class inputManager {
 			
 			return result;
 		}
+		*/
 		
+		/*
 		if (operation.equalsIgnoreCase("lowercase")) {
 			
 			try {
 				String content = readParameter(input, 1);
 				
-				result = simpleModifier.lowerCase.calculate(content);
+				// result = simpleModifier.lowerCase.calculate(content);
 				
 			} catch (ArrayIndexOutOfBoundsException e) {
 				result = "Error: Missing Argument: Nothing to make LowerCase found.";
@@ -127,7 +132,9 @@ public class inputManager {
 			return result;
 			
 		}
+		*/
 		
+		/*
 		if (operation.equalsIgnoreCase("randomnumber")) {
 			
 			try {
@@ -150,7 +157,9 @@ public class inputManager {
 			return result;
 			
 		}
+		*/
 		
+		/*
 		if (operation.equalsIgnoreCase("md5")) {
 			
 			try {
@@ -164,7 +173,9 @@ public class inputManager {
 			
 			return result;
 		}
+		*/
 		
+		/*
 		if (operation.equalsIgnoreCase("countsymbols")) {
 			
 			try {
@@ -178,7 +189,9 @@ public class inputManager {
 				result = "Error: Missing Argument: Nothing given to calculate the length of.";
 			}
 		}
+		*/
 		
+		/*
 		if (operation.equalsIgnoreCase("rot13")) {
 			
 			try {
@@ -193,6 +206,7 @@ public class inputManager {
 			}
 			
 		}
+		*/
 		
 		result = "Unknown command '" + operation
 				+ "'. Type 'help' for a list of all allowed operators.";

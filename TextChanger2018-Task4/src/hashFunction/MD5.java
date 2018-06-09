@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.xml.bind.DatatypeConverter;
 
-public class MD5 {
+public class MD5 implements interfaces.OneArguments {
 	
 	/**
 	 * This class gets an String for input and returns the MD5 hash.
@@ -13,7 +13,8 @@ public class MD5 {
 	 *        String to hash
 	 * @return String hashed with MD5
 	 */
-	public static String calculate(String input) {
+	@Override
+	public String calculate(String input) {
 		
 		try {
 			// ready md
