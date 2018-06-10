@@ -61,7 +61,7 @@ public class ManageOneArgument {
 		}
 		
 		if (argumentOne.equalsIgnoreCase("rot13")) {
-			manageOne = new ManageOneArgument(new enDeCrypt.ROT13(),
+			manageOne = new ManageOneArgument(new simpleModifier.ROT13(),
 					argumentTwo);
 			result = manageOne.startCalculating();
 		}

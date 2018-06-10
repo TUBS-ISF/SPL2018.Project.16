@@ -1,4 +1,4 @@
-package enDeCrypt;
+package simpleModifier;
 
 public class ROT13 implements interfaces.OneArgument {
 	/**

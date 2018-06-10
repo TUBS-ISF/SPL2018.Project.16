@@ -46,7 +46,7 @@ For example, the text "A simple example." will result in ".elpmaxe elpmis A".
 Provides different means for Encryption and Decryption.
 Aside for the text a password is needed.
 </description>
-                <feature abstract="true" name="AES">
+                <feature name="AES">
                     <description>
 Encryption/Decryption with "AES".
 For info about AES see https://en.wikipedia.org/wiki/Advanced_Encryption_Standard
