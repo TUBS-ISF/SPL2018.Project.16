@@ -32,7 +32,7 @@ public class inputManager {
 		// saves operation in parameter 'operation'
 		// if nothing given raise an error
 		if (numberArguments >= 0) {
-			operation = input.split("\\s+")[0];
+			operation = input.split("\\s+")[0].toLowerCase();
 		} else {
 			result = "Error: No input given.";
 			return result;
@@ -79,6 +79,14 @@ public class inputManager {
 			System.out.println("Existiert nicht!");
 		}
 		*/
+		
+		// check if the operation exists and is enabled
+		if (!(PluginManager.pluginList().containsKey(operation)
+				&& PluginManager.pluginList().get(operation).get(0) == 1)) {
+			result = "Unknown command '" + operation
+					+ "'. Type 'help' for a list of all allowed operators.";
+			return result;
+		}
 		
 		if (legitOperation(operation, "uppercase")) {
 			if (!legitArgumentNumber(operation, numberArguments)) {
@@ -180,6 +188,16 @@ public class inputManager {
 		return message;
 	}
 	
+	/**
+	 * This method checks if an given operation is legit.
+	 * It is legit, if it is in the list *and* enabled.
+	 * 
+	 * @param operation
+	 *        The given operation.
+	 * @param toCheck
+	 *        The operation currently to check.
+	 * @return Is it legit or not? (Boolean)
+	 */
 	public static boolean legitOperation(String operation, String toCheck) {
 		
 		// if the operation exists
@@ -195,6 +213,19 @@ public class inputManager {
 			return false;
 	}
 	
+	/**
+	 * This method checks if the number of given arguments is correct.
+	 * It compares the number of given arguments with the umber of required
+	 * arguments.
+	 * 
+	 * If the number is not correct descripe the problem in the output.
+	 * 
+	 * @param operation
+	 *        Name of the given operation to check.
+	 * @param numberArguments
+	 *        Given number of arguments.
+	 * @return Is the number correct or not? (boolean.)
+	 */
 	public static boolean legitArgumentNumber(String operation,
 			int numberArgumentsGiven) {
 		
