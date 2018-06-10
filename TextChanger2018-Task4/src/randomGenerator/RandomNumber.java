@@ -2,7 +2,7 @@ package randomGenerator;
 
 import java.security.SecureRandom;
 
-public class RandomNumber implements interfaces.OneArguments {
+public class RandomNumber implements interfaces.OneArgument {
 	
 	/**
 	 * This class calculated an random number of given length.

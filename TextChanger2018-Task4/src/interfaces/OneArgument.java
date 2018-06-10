@@ -9,7 +9,7 @@ package interfaces;
  * before being send with by the interface and afterwards back to int.
  *
  */
-public interface OneArguments {
+public interface OneArgument {
 	
 	public String calculate(String argumentOne);
 	

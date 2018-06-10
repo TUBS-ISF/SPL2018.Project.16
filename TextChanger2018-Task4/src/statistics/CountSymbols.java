@@ -1,6 +1,6 @@
 package statistics;
 
-public class CountSymbols implements interfaces.OneArguments {
+public class CountSymbols implements interfaces.OneArgument {
 	
 	/**
 	 * This class counts the number of symbols of the input.

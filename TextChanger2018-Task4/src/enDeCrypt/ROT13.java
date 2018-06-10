@@ -1,6 +1,6 @@
 package enDeCrypt;
 
-public class ROT13 implements interfaces.OneArguments {
+public class ROT13 implements interfaces.OneArgument {
 	/**
 	 * This classgets an String and calculates the ROT13 result.
 	 * 

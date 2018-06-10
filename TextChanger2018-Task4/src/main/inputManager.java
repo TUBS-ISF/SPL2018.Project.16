@@ -1,7 +1,7 @@
 package main;
 
-import interfaces.OneArguments;
-import interfaces.ThreeArguments;
+import interfaces.OneArgument;
+import interfaces.TwoArguments;
 
 public class inputManager {
 	
@@ -89,7 +89,11 @@ public class inputManager {
 			}
 			
 			case 3: {
-				// TODO Fill this.
+				String ArgumentOne = readParameter(input, 0);
+				String ArgumentTwo = readParameter(input, 1);
+				String ArgumentThree = readParameter(input, 2);
+				result = ManageTwoArguments.start(ArgumentOne, ArgumentTwo,
+						ArgumentThree);
 				return result;
 			}
 			
