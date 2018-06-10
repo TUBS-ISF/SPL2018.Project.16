@@ -1,35 +1,8 @@
 package main;
 
-import interfaces.OneArgument;
-import interfaces.TwoArguments;
+import main.PluginManager;
 
 public class inputManager {
-	
-	/**
-	 * Reads the parameter on the given position and returns it.
-	 * 
-	 * @param input
-	 *        Input String
-	 * @param number
-	 *        The position of the desired parameter.
-	 * @return The parameter on the desired position.
-	 */
-	static String readParameter(String input, int number) {
-		String parameter = input.split("\\s+")[number];
-		return parameter;
-	}
-	
-	/**
-	 * Counts the number of Arhuments in the given input
-	 * 
-	 * @param input
-	 *        The given input
-	 * @return The number of Arguments in the given input.
-	 */
-	static int countInputArguments(String input) {
-		int numberOfArguments = input.split("\\s+").length;
-		return numberOfArguments;
-	}
 	
 	/**
 	 * This method (a *very* inportant method!) reads the input of the given
@@ -46,176 +19,200 @@ public class inputManager {
 		// initialise empty String for result.
 		String result = "Error: If you see this message, something went wrong.";
 		
+		// number arguments (without the operation itself)
+		final int numberArguments = input.split("\\s+").length - 1;
+		
+		final String operation;
+		final String argumentOne;
+		final String argumentTwo;
+		
+		final ManageOneArgument manageOne;
+		final ManageTwoArguments manageTwo;
+		
 		// saves operation in parameter 'operation'
-		String operation = readParameter(input, 0);
-		
-		int numberArguments = countInputArguments(input);
-		
-		// TODO: Implement function to check for wrong number of arguments for
-		// function?
-		switch (numberArguments) {
-			
-			case 0: {
-				result = "Error: No input given.";
-				return result;
-			}
-			
-			case 1: {
-				if (operation.equalsIgnoreCase("exit")
-						|| operation.equalsIgnoreCase("quit")
-						|| operation.equalsIgnoreCase("q")) {
-					WriteOutput.write("Exit Program.");
-					System.exit(0);
-				}
-				
-				if (operation.equalsIgnoreCase("license")) {
-					result = Texts.license();
-					return result;
-				}
-				
-				if (operation.equalsIgnoreCase("help")) {
-					Texts.help();
-					result = "";
-					return result;
-				}
-				break;
-			}
-			
-			case 2: {
-				String ArgumentOne = readParameter(input, 0);
-				String ArgumentTwo = readParameter(input, 1);
-				result = ManageOneArgument.start(ArgumentOne, ArgumentTwo);
-				return result;
-			}
-			
-			case 3: {
-				String ArgumentOne = readParameter(input, 0);
-				String ArgumentTwo = readParameter(input, 1);
-				String ArgumentThree = readParameter(input, 2);
-				result = ManageTwoArguments.start(ArgumentOne, ArgumentTwo,
-						ArgumentThree);
-				return result;
-			}
-			
-			default: {
-				result = "Illegal number of arguments. Number of arguments given: "
-						+ numberArguments;
-				
-				return result;
-			}
-		}
-		
-		/*
-		if (operation.equalsIgnoreCase("uppercase")) {
-			
-			try {
-				String content = readParameter(input, 1);
-				
-				result = simpleModifier.upperCase.calculate(content);
-				
-			} catch (ArrayIndexOutOfBoundsException e) {
-				result = "Error: Missing Argument: Nothing to make UpperCase found.";
-			}
-			
+		// if nothing given raise an error
+		if (numberArguments >= 0) {
+			operation = input.split("\\s+")[0];
+		} else {
+			result = "Error: No input given.";
 			return result;
 		}
-		*/
 		
-		/*
-		if (operation.equalsIgnoreCase("lowercase")) {
-			
-			try {
-				String content = readParameter(input, 1);
-				
-				// result = simpleModifier.lowerCase.calculate(content);
-				
-			} catch (ArrayIndexOutOfBoundsException e) {
-				result = "Error: Missing Argument: Nothing to make LowerCase found.";
-			}
-			
-			return result;
-			
+		// creates variables argumentOne and ArgumentTwo
+		if (numberArguments >= 1) {
+			argumentOne = input.split("\\s+")[1];
+		} else {
+			argumentOne = null;
 		}
-		*/
-		
-		/*
-		if (operation.equalsIgnoreCase("randomnumber")) {
-			
-			try {
-				String lengthStr = readParameter(input, 1);
-				
-				try {
-					int lengthInt = Integer.parseInt(lengthStr);
-					
-					result = randomGenerator.RandomNumber.calculate(lengthInt);
-					
-				} catch (NumberFormatException e) {
-					result = "Error: Wrong Argument: Length of random number was not an number. (Given: \""
-							+ lengthStr + "\")";
-				}
-				
-			} catch (ArrayIndexOutOfBoundsException e) {
-				result = "Error: Missing Argument: Length of random number not found.";
-			}
-			
-			return result;
-			
+		if (numberArguments >= 2) {
+			argumentTwo = input.split("\\s+")[2];
+		} else {
+			argumentTwo = null;
 		}
-		*/
 		
-		/*
-		if (operation.equalsIgnoreCase("md5")) {
-			
-			try {
-				String content = readParameter(input, 1);
-				
-				result = hashFunction.MD5.calculate(content);
-				
-			} catch (ArrayIndexOutOfBoundsException e) {
-				result = "Error: Missing Argument: Nothing given to hash with MD5.";
-			}
-			
+		// Basic operations ***************************************************
+		
+		if (operation.equalsIgnoreCase("exit")
+				|| operation.equalsIgnoreCase("quit")
+				|| operation.equalsIgnoreCase("q")) {
+			WriteOutput.write("Exit Program.");
+			System.exit(0);
+		}
+		
+		if (operation.equalsIgnoreCase("license")) {
+			result = Texts.license();
 			return result;
 		}
-		*/
 		
+		if (operation.equalsIgnoreCase("help")) {
+			Texts.help();
+			result = "";
+			return result;
+		}
+		
+		// Extended operations ************************************************
+		
+		// TODO Use a variant of this to speed up the seach.
+		// Don't forget to check for enabled/disabled!
 		/*
-		if (operation.equalsIgnoreCase("countsymbols")) {
-			
-			try {
-				String content = readParameter(input, 1);
-				
-				result = statistics.CountSymbols.calculate(content);
-				
-				return result;
-				
-			} catch (ArrayIndexOutOfBoundsException e) {
-				result = "Error: Missing Argument: Nothing given to calculate the length of.";
-			}
+		if (PluginManager.pluginList().containsKey(operation)) {
+			System.out.println("Existiert nicht!");
 		}
 		*/
 		
-		/*
-		if (operation.equalsIgnoreCase("rot13")) {
-			
-			try {
-				String content = readParameter(input, 1);
-				
-				result = enDeCrypt.ROT13.calculate(content);
-				
-				return result;
-				
-			} catch (ArrayIndexOutOfBoundsException e) {
-				result = "Error: Missing Argument: Nothing given to encrypt/decrypt to/from ROT13.";
+		if (legitOperation(operation, "uppercase")) {
+			if (!legitArgumentNumber(operation, numberArguments)) {
+				return result = "";
 			}
-			
+			manageOne = new ManageOneArgument(new simpleModifier.upperCase(),
+					argumentOne);
+			result = manageOne.startCalculating();
+			return result;
 		}
-		*/
 		
+		if (legitOperation(operation, "lowercase")) {
+			if (!legitArgumentNumber(operation, numberArguments)) {
+				return result = "";
+			}
+			manageOne = new ManageOneArgument(new simpleModifier.lowerCase(),
+					argumentOne);
+			result = manageOne.startCalculating();
+			return result;
+		}
+		
+		if (legitOperation(operation, "randomnumber")) {
+			if (!legitArgumentNumber(operation, numberArguments)) {
+				return result = "";
+			}
+			manageOne = new ManageOneArgument(
+					new randomGenerator.RandomNumber(), argumentOne);
+			result = manageOne.startCalculating();
+			return result;
+		}
+		
+		if (legitOperation(operation, "md5")) {
+			if (!legitArgumentNumber(operation, numberArguments)) {
+				return result = "";
+			}
+			manageOne = new ManageOneArgument(new hashFunction.MD5(),
+					argumentOne);
+			result = manageOne.startCalculating();
+			return result;
+		}
+		
+		if (legitOperation(operation, "countsymbols")) {
+			if (!legitArgumentNumber(operation, numberArguments)) {
+				return result = "";
+			}
+			manageOne = new ManageOneArgument(new statistics.CountSymbols(),
+					argumentOne);
+			result = manageOne.startCalculating();
+			return result;
+		}
+		
+		if (legitOperation(operation, "rot13")) {
+			if (!legitArgumentNumber(operation, numberArguments)) {
+				return result = "";
+			}
+			manageOne = new ManageOneArgument(new simpleModifier.ROT13(),
+					argumentOne);
+			result = manageOne.startCalculating();
+			return result;
+		}
+		
+		if (legitOperation(operation, "aes")) {
+			if (!legitArgumentNumber(operation, numberArguments)) {
+				return result = "";
+			}
+			manageTwo = new ManageTwoArguments(new enDeCrypt.AES(), argumentOne,
+					argumentTwo);
+			result = manageTwo.startCalculating();
+			return result;
+		}
+		
+		// if operation not found or not enabled
 		result = "Unknown command '" + operation
 				+ "'. Type 'help' for a list of all allowed operators.";
 		
 		return result;
+		
+	}
+	
+	/**
+	 * Generates the error-message for the wrong number of given arguments
+	 * Note: numberIs has to be decreased by one. Otherwise the operation istelf
+	 * is counted, too.
+	 * 
+	 * @param operation
+	 *        The name of the desired operation
+	 * @param numberIs
+	 *        The number of the given arguments
+	 * @param numberShould
+	 *        The number of arguments needed
+	 * @return The String with the matching error-message
+	 */
+	public static String notEnoughArguments(String operation, int numberIs,
+			int numberShould) {
+		
+		String message = "Error: " + operation
+				+ ": Wrong number of arguments given.\n" + "Given: "
+				+ (numberIs) + " Should: " + numberShould;
+		return message;
+	}
+	
+	public static boolean legitOperation(String operation, String toCheck) {
+		
+		// if the operation exists
+		if (operation.equalsIgnoreCase(toCheck)) {
+			
+			// if the operation is enabled
+			if (PluginManager.pluginList().get(operation).get(0) == 1) {
+				
+				return true;
+			} else
+				return false;
+		} else
+			return false;
+	}
+	
+	public static boolean legitArgumentNumber(String operation,
+			int numberArgumentsGiven) {
+		
+		// if operation has correct argument number
+		if (numberArgumentsGiven == PluginManager.pluginList().get(operation)
+				.get(1)) {
+			
+			return true;
+			
+		} else {
+			// Write error if wrong argument number
+			String message = "Error: " + operation
+					+ ": Wrong number of arguments given.\n" + "Given: "
+					+ (numberArgumentsGiven) + " Should: "
+					+ PluginManager.pluginList().get(operation).get(1);
+			WriteOutput.write(message);
+			return false;
+		}
 		
 	}
 	

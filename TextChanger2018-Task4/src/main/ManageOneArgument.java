@@ -7,11 +7,13 @@ public class ManageOneArgument {
 	private OneArgument mode = null;
 	private String argumentOne = null;
 	
+	// constructor for class
 	public ManageOneArgument(OneArgument mode, String argumentOne) {
 		this.mode = mode;
 		this.argumentOne = argumentOne;
 	}
 	
+	// called by this class to calculate and get the result from the plugin.
 	public String startCalculating() {
 		
 		String result = mode.calculate(argumentOne);
@@ -19,6 +21,7 @@ public class ManageOneArgument {
 	}
 	
 	// TODO: Make an *real* manager who can parse the command directly
+	// called from third parties to access this whole class. (inputManager.java)
 	public static String start(String argumentOne, String argumentTwo) {
 		String result = uglyManager(argumentOne, argumentTwo);
 		
@@ -30,12 +33,15 @@ public class ManageOneArgument {
 		ManageOneArgument manageOne = null;
 		String result = null;
 		
+		/*
 		if (argumentOne.equalsIgnoreCase("uppercase")) {
 			manageOne = new ManageOneArgument(new simpleModifier.upperCase(),
 					argumentTwo);
 			result = manageOne.startCalculating();
 		}
+		*/
 		
+		/*
 		if (argumentOne.equalsIgnoreCase("lowercase")) {
 			manageOne = new ManageOneArgument(new simpleModifier.lowerCase(),
 					argumentTwo);
@@ -65,6 +71,7 @@ public class ManageOneArgument {
 					argumentTwo);
 			result = manageOne.startCalculating();
 		}
+		*/
 		
 		// if no valid command
 		if (manageOne == null || result == null) {
