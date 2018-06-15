@@ -1,0 +1,8 @@
+To edit the configuration:
+
+Open ..\TextChanger2018-Task4\scr\main\PluginManager.java
+Inside you find an HashMap named "pluginList".
+
+The key of each entry is the name of the operation.
+The first value enables (value=1) or disables (value=0) the plugin.
+The second value conatins the number of arguments required for the operation.
