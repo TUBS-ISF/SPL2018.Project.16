@@ -13,5 +13,6 @@
     <feature automatic="selected" name="Statistics"/>
     <feature manual="selected" name="CountSymbols"/>
     <feature manual="selected" name="CountSymbolAppearance"/>
+    <feature manual="selected" name="LongestCommonSubstring"/>
     <feature automatic="selected" name="GUI"/>
 </configuration>

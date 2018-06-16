@@ -58,12 +58,6 @@ Encryption/Decryption with "DES".
 For info about DES see https://en.wikipedia.org/wiki/Data_Encryption_Standard
 </description>
                 </feature>
-                <feature abstract="true" name="IDEA">
-                    <description>
-Encryption/Decryption with "IDEA"
-For info about IDEA see https://en.wikipedia.org/wiki/International_Data_Encryption_Algorithm
-</description>
-                </feature>
             </and>
             <and abstract="true" mandatory="true" name="Input">
                 <description>
@@ -155,6 +149,7 @@ Counts the number of given symbols.
 Counts how often each symbol appears.
 </description>
                 </feature>
+                <feature abstract="true" name="LongestCommonSubstring"/>
             </and>
             <feature abstract="true" name="GUI"/>
         </and>
