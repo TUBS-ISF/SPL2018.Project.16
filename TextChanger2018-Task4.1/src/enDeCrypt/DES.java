@@ -5,6 +5,7 @@ import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -13,21 +14,15 @@ import javax.crypto.spec.SecretKeySpec;
 
 import sun.misc.BASE64Encoder;
 
-public class AES implements interfaces.TwoArguments {
+public class DES implements interfaces.TwoArguments {
 	
 	/**
 	 * 
 	 * This class gets an input String and an password with AES.
 	 * First the input is encrypted and afterwards decrypted again.
 	 * 
-	 * Warning: Currenty somehow *not* compactible with other AES en/decryptors.
-	 * Possible reasons:
-	 * -Wrong hash in line "MessageDigest.getInstance("SHA-256")"
-	 * -Wrong mode in line "Cipher.getInstance("AES/ECB/PKCS5Padding")"
-	 * 
-	 * Warning: Program can't even decrypt it's own results.
-	 * It needs to decrypt the input directly, not the stuff he had just
-	 * encrypted.
+	 * Warning: Doesn't work!
+	 * See comments on AES.java for details.
 	 * 
 	 * @param input
 	 *        The String to encrypt/decrypt
@@ -62,40 +57,27 @@ public class AES implements interfaces.TwoArguments {
 			// convert the password from String to SecretKeySpec
 			SecretKeySpec key = convertPassword(password);
 			if (key == null) {
-				return "Error: AES: Can't convert the key from String to SecretKeySpec.";
+				return "Error: DES: Can't convert the key from String to SecretKeySpec.";
 			}
 			
-			// prepare the cipher for encryption
-			Cipher cipherEncrypt = Cipher.getInstance("AES/ECB/PKCS5Padding");
+			// prepare cipher for encryption
+			Cipher cipherEncrypt = Cipher.getInstance("DES/ECB/PKCS5Padding");
 			cipherEncrypt.init(Cipher.ENCRYPT_MODE, key);
 			
-			// encrypt the input with the cipher
-			byte[] encryptedByte = cipherEncrypt.doFinal(input.getBytes());
+			// Encrypt the text
+			byte[] textEncrypted = cipherEncrypt.doFinal(input.getBytes());
 			
 			// convert bytes to Base64 String (for readability).
 			BASE64Encoder encryptedBASE64 = new BASE64Encoder();
-			String resultEncrypted = encryptedBASE64.encode(encryptedByte);
+			String resultEncrypted = encryptedBASE64.encode(textEncrypted);
 			
-			// prepare the cipher for decryption
-			Cipher cipherDecrypt = Cipher.getInstance("AES/ECB/PKCS5Padding");
+			// prepare cipher for encryption
+			Cipher cipherDecrypt = Cipher.getInstance("DES/ECB/PKCS5Padding");
 			cipherDecrypt.init(Cipher.DECRYPT_MODE, key);
 			
-			/*
-			// decrypt the previously encrypted input
-			byte[] decryptedByte = cipherDecrypt
-					.doFinal(Base64.getDecoder().decode(input));
-			String resultDecrypted = new String(decryptedByte);
-			*/
-			
-			/*
-			String resultDecrypted = new String(
-					cipherDecrypt.doFinal(Base64.getDecoder().decode(input)));
-			*/
-			
-			// TODO: It should decrypt the input, not the previous results.
-			// decrypt the previously encrypted input
-			byte[] decryptedByte = cipherDecrypt.doFinal(encryptedByte);
-			String resultDecrypted = new String(decryptedByte);
+			// Decrypt the text
+			byte[] textDecrypted = cipherDecrypt.doFinal(textEncrypted);
+			String resultDecrypted = new String(textDecrypted);
 			
 			String resultNote1 = "Warning: Buggy! Don't use this program.";
 			
@@ -109,27 +91,27 @@ public class AES implements interfaces.TwoArguments {
 			
 			return result;
 			
-			// catches for possible exceptions.
 		} catch (NoSuchAlgorithmException e) {
-			result = "Error: AES: NoSuchAlgorithmException";
+			result = "Error: DES: NoSuchAlgorithmException";
 			return result;
 			
 		} catch (NoSuchPaddingException e) {
-			result = "Error: AES: NoSuchAlgorithmException";
+			result = "Error: DES: NoSuchAlgorithmException";
 			return result;
 			
 		} catch (InvalidKeyException e) {
-			result = "Error: AES: InvalidKeyException";
+			result = "Error: DES: InvalidKeyException";
 			return result;
 			
 		} catch (IllegalBlockSizeException e) {
-			result = "Error: AES: IllegalBlockSizeException";
+			result = "Error: DES: IllegalBlockSizeException";
 			return result;
 			
 		} catch (BadPaddingException e) {
-			result = "Error: AES: BadPaddingException";
+			result = "Error: DES: BadPaddingException";
 			return result;
 		}
+		
 	}
 	
 	// converts the password from String to SecretKeySpec. (moved here for readability)
@@ -147,11 +129,13 @@ public class AES implements interfaces.TwoArguments {
 			MessageDigest sha = MessageDigest.getInstance("SHA-256");
 			passwordByte = sha.digest(passwordByte);
 			
-			// only use the first 128 bit
-			passwordByte = Arrays.copyOf(passwordByte, 16);
+			// only use the first 64 bit
+			passwordByte = Arrays.copyOf(passwordByte, 8);
 			
 			// key for encryption
-			key = new SecretKeySpec(passwordByte, "AES");
+			key = new SecretKeySpec(passwordByte, "DES");
+			
+			// key = new SecretKeySpec(password.getBytes("UTF-8"), "AES");
 			
 			return key;
 			
@@ -163,5 +147,4 @@ public class AES implements interfaces.TwoArguments {
 		}
 		
 	}
-	
 }

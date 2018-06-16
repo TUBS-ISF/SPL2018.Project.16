@@ -52,7 +52,7 @@ Encryption/Decryption with "AES".
 For info about AES see https://en.wikipedia.org/wiki/Advanced_Encryption_Standard
 </description>
                 </feature>
-                <feature abstract="true" name="DES">
+                <feature name="DES">
                     <description>
 Encryption/Decryption with "DES".
 For info about DES see https://en.wikipedia.org/wiki/Data_Encryption_Standard
@@ -126,7 +126,7 @@ Returns a random string with numbers and letters of given length.
 Generates the hast calue of an input.
 It can be choosen between different hash algorithms.
 </description>
-                <feature abstract="true" name="SHA256">
+                <feature name="SHA256">
                     <description>
 Hashes the input with SHA256
 

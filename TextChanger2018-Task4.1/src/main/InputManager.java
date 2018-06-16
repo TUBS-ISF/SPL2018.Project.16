@@ -143,6 +143,12 @@ public class InputManager {
 			return result;
 		}
 		
+		if (operation.equalsIgnoreCase("DES")) {
+			manageTwo = new ManageTwoArguments(new enDeCrypt.DES(), argumentOne, argumentTwo);
+			result = manageTwo.startCalculating();
+			return result;
+		}
+		
 		// if operation not found or not enabled
 		result = "Something went wrong if you see this message...";
 		

@@ -102,6 +102,15 @@ public class PluginManager {
 				"SHA256 'input'"));
 		pluginList.put("sha256", sha256values);
 		
+		// Plugin DES
+		List<String> desvalues = new ArrayList<String>();
+		desvalues.add("enabled");
+		desvalues.add("2");
+		desvalues
+				.add(formatHelp("DES: Encrypt/Decrypt the input with DES using the given password.",
+						"DES 'password' 'input'"));
+		pluginList.put("des", desvalues);
+		
 		return pluginList;
 	}
 	
