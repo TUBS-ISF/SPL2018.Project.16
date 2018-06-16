@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * This class configues whether an plugin is enabled, the number of arguments it has
+ * This class configues whether an plugin is enabled,
+ * the number of required arguments
  * and the helping text.
  *
  */
@@ -17,9 +18,13 @@ public class PluginManager {
 	 * 
 	 * Explanation of the values:
 	 * key: the name of the operation (lowercase)
-	 * value 0: enabled (1=yes, 0=no)
+	 * value 0: enabled or disabled (details see below)
 	 * value 1: number of arguments
 	 * value 2: helping text (see method "formatHelp" below for details)
+	 * 
+	 * Status enabled/disabled:
+	 * enabled: "1", "true", "enabled", "positive"
+	 * disabled: "0", "false", "disabled", "negative"
 	 * 
 	 * @return The HashMap.
 	 */
@@ -30,7 +35,7 @@ public class PluginManager {
 		
 		// Plugin UpperCase
 		List<String> uppercasevalues = new ArrayList<String>();
-		uppercasevalues.add("1");
+		uppercasevalues.add("enabled");
 		uppercasevalues.add("1");
 		uppercasevalues
 				// .add("UpperCase: Makes all letters UPPERCASE.\n\tUsage: \"UpperCase 'input'\"");
@@ -39,7 +44,7 @@ public class PluginManager {
 		
 		// Plugin LowerCase
 		List<String> lowercasevalues = new ArrayList<String>();
-		lowercasevalues.add("1");
+		lowercasevalues.add("enabled");
 		lowercasevalues.add("1");
 		lowercasevalues
 				.add(formatHelp("LowerCase: Makes all letters lowercase.", "LowerCase 'input'"));
@@ -47,7 +52,7 @@ public class PluginManager {
 		
 		// Plugin RandomNumber
 		List<String> randomnumbervalues = new ArrayList<String>();
-		randomnumbervalues.add("1");
+		randomnumbervalues.add("enabled");
 		randomnumbervalues.add("1");
 		randomnumbervalues
 				.add(formatHelp("RandomNumber: Calculates an random number of given legth.",
@@ -56,7 +61,7 @@ public class PluginManager {
 		
 		// Plugin MD5
 		List<String> md5values = new ArrayList<String>();
-		md5values.add("1");
+		md5values.add("enabled");
 		md5values.add("1");
 		md5values.add(
 				formatHelp("MD5: Calculates the hash value of the input with the MD5 algorithm.",
@@ -65,7 +70,7 @@ public class PluginManager {
 		
 		// Plugin CountSymbols
 		List<String> countsymbolsvalues = new ArrayList<String>();
-		countsymbolsvalues.add("1");
+		countsymbolsvalues.add("enabled");
 		countsymbolsvalues.add("1");
 		countsymbolsvalues.add(formatHelp("CountSymbols: Counts the symbols of the input.",
 				"CountSymbols 'input'"));
@@ -73,7 +78,7 @@ public class PluginManager {
 		
 		// Plugin ROT13
 		List<String> rot13values = new ArrayList<String>();
-		rot13values.add("1");
+		rot13values.add("enabled");
 		rot13values.add("1");
 		rot13values.add(formatHelp("ROT13: Makes an ROT13-modification of the given input.",
 				"ROT13 'input'"));
@@ -81,7 +86,7 @@ public class PluginManager {
 		
 		// Plugin AES
 		List<String> aesvalues = new ArrayList<String>();
-		aesvalues.add("1");
+		aesvalues.add("enabled");
 		aesvalues.add("2");
 		aesvalues
 				.add(formatHelp("AES: Encrypt/Decrypt the input with AES using the given password.",
@@ -91,15 +96,8 @@ public class PluginManager {
 		return pluginList;
 	}
 	
-	/**
-	 * Formats the helping text.
-	 * 
-	 * @param description
-	 *        Short description of what the function does.
-	 * @param usage
-	 *        The usage of the function.
-	 * @return The calculated helping text.
-	 */
+	// formates the helping text.
+	// First a short description, second the usage.
 	private static String formatHelp(String description, String usage) {
 		
 		return (description + "\n\tUsage: \"" + usage + "\"\n");

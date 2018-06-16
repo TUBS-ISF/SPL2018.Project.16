@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Arrays;
+
 import main.PluginManager;
 
 public class InputManager {
@@ -136,8 +138,7 @@ public class InputManager {
 		}
 		
 		// if operation not found or not enabled
-		result = "Unknown command '" + operation
-				+ "'. Type 'help' for a list of all allowed operators.";
+		result = "Something went wrong if you see this message...";
 		
 		return result;
 		
@@ -154,22 +155,46 @@ public class InputManager {
 	}
 	
 	// Check if plugin is enabled
+	// Keywords for enabled/disbaled can be changed here.
 	private static boolean pluginEnabled(String operation) {
 		
-		if (PluginManager.pluginList().get(operation).get(0).equalsIgnoreCase("1")) {
+		final String pluginStatus = PluginManager.pluginList().get(operation).get(0);
+		
+		final String[] enabled = new String[] { "1", "true", "enabled", "positive" };
+		final String[] disabled = new String[] { "0", "false", "disabled", "negative" };
+		
+		if (Arrays.asList(enabled).contains(pluginStatus)) {
 			return true;
+		} else if (Arrays.asList(disabled).contains(pluginStatus)) {
+			return false;
 		} else {
+			WriteOutput.write("Critical error: illegal Enabled/Disabled status for operation \""
+					+ operation + "\".");
+			WriteOutput.write("Given status: \"" + pluginStatus + "\"");
+			WriteOutput.write("Allowed for enabled: " + Arrays.toString(enabled));
+			WriteOutput.write("Allowed for disabled: " + Arrays.toString(disabled));
 			return false;
 		}
+		
 	}
 	
 	// Check if the correct number of arguments is given
 	private static boolean pluginArgumentNumber(String operation, int numberArgumentsGiven) {
 		
-		String argumentNumberRequiredStr = PluginManager.pluginList().get(operation).get(1);
+		final String argumentNumberRequiredStr = PluginManager.pluginList().get(operation).get(1);
+		final int argumentNumberRequired;
 		
-		// convert to int, since originally stored as String.
-		int argumentNumberRequired = Integer.parseInt(argumentNumberRequiredStr);
+		try {
+			// convert to int, since originally stored as String.
+			argumentNumberRequired = Integer.parseInt(argumentNumberRequiredStr);
+		} catch (NumberFormatException e) {
+			// Catch error if not a number
+			WriteOutput.write("Error: Illegal value for 'number of Arguments'.");
+			WriteOutput.write("Given: \"" + argumentNumberRequiredStr + "\"");
+			WriteOutput.write("Expected: An number like \"1\" for one argument. "
+					+ "(Don't forget the quotation marks.)");
+			return false;
+		}
 		
 		// if operation has correct argument number
 		if (numberArgumentsGiven == argumentNumberRequired) {
