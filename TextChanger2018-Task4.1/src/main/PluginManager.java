@@ -111,6 +111,15 @@ public class PluginManager {
 						"DES 'password' 'input'"));
 		pluginList.put("des", desvalues);
 		
+		// Plugin LongComSub
+		List<String> longcomsubvalues = new ArrayList<String>();
+		longcomsubvalues.add("enabled");
+		longcomsubvalues.add("2");
+		longcomsubvalues.add(formatHelp(
+				"LongComSub: Calculates the Longest Common Substring of two given Strings.",
+				"LongComSub 'String1' 'String2'"));
+		pluginList.put("longcomsub", longcomsubvalues);
+		
 		return pluginList;
 	}
 	

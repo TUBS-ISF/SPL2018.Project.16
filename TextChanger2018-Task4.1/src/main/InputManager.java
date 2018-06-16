@@ -149,7 +149,14 @@ public class InputManager {
 			return result;
 		}
 		
-		// if operation not found or not enabled
+		if (operation.equalsIgnoreCase("LongComSub")) {
+			manageTwo = new ManageTwoArguments(new statistics.LongComSub(), argumentOne,
+					argumentTwo);
+			result = manageTwo.startCalculating();
+			return result;
+		}
+		
+		// if something unexpected went wrong. (This code should normally never be reached...)
 		result = "Something went wrong if you see this message...";
 		
 		return result;

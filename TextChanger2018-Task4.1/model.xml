@@ -149,7 +149,7 @@ Counts the number of given symbols.
 Counts how often each symbol appears.
 </description>
                 </feature>
-                <feature abstract="true" name="LongestCommonSubstring"/>
+                <feature name="LongestCommonSubstring"/>
             </and>
             <feature abstract="true" name="GUI"/>
         </and>
