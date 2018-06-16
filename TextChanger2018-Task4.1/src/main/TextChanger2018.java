@@ -15,7 +15,7 @@ public class TextChanger2018 {
 		while (true) {
 			String input = ReadInput.read();
 			
-			String result = inputManager.manage(input);
+			String result = InputManager.manage(input);
 			
 			WriteOutput.write(result);
 			
