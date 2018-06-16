@@ -4,21 +4,21 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.xml.bind.DatatypeConverter;
 
-public class MD5 implements interfaces.OneArgument {
+public class SHA256 implements interfaces.OneArgument {
 	
 	/**
-	 * This class gets an String for input and returns the MD5 hash.
+	 * This class gets an String for input and returns the SHA256 hash.
 	 * 
 	 * @param input
 	 *        String to hash
-	 * @return String hashed with MD5
+	 * @return String hashed with SHA256
 	 */
 	@Override
 	public String calculate(String input) {
 		
 		try {
 			// prepare md
-			MessageDigest md = MessageDigest.getInstance("MD5");
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
 			md.reset();
 			
 			// create hash in byte format
@@ -31,7 +31,7 @@ public class MD5 implements interfaces.OneArgument {
 			
 		} catch (NoSuchAlgorithmException e) {
 			
-			return "Error: Hash Algorithm \"MD5\" not found.";
+			return "Error: Hash Algorithm \"SHA256\" not found.";
 		}
 	}
 }

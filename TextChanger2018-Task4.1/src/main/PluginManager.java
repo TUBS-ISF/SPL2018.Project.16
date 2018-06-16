@@ -93,6 +93,15 @@ public class PluginManager {
 						"AES 'password' 'input'"));
 		pluginList.put("aes", aesvalues);
 		
+		// Plugin SHA256
+		List<String> sha256values = new ArrayList<String>();
+		sha256values.add("enabled");
+		sha256values.add("1");
+		sha256values.add(formatHelp(
+				"SHA256: Calculates the hash value of the input with the SHA256 algorithm.",
+				"SHA256 'input'"));
+		pluginList.put("sha256", sha256values);
+		
 		return pluginList;
 	}
 	

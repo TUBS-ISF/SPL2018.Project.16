@@ -137,6 +137,12 @@ public class InputManager {
 			return result;
 		}
 		
+		if (operation.equalsIgnoreCase("SHA256")) {
+			manageOne = new ManageOneArgument(new hashFunction.SHA256(), argumentOne);
+			result = manageOne.startCalculating();
+			return result;
+		}
+		
 		// if operation not found or not enabled
 		result = "Something went wrong if you see this message...";
 		
