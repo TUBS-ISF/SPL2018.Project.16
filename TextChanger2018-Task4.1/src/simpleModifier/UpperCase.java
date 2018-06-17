@@ -1,6 +1,6 @@
 package simpleModifier;
 
-public class upperCase implements interfaces.OneArgument {
+public class UpperCase implements interfaces.OneArgument {
 	
 	/**
 	 * This class makes the input lowercase.

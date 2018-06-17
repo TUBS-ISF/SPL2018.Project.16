@@ -96,13 +96,13 @@ public class InputManager {
 		// above it's not checked again.
 		
 		if (operation.equalsIgnoreCase("UpperCase")) {
-			manageOne = new ManageOneArgument(new simpleModifier.upperCase(), argumentOne);
+			manageOne = new ManageOneArgument(new simpleModifier.UpperCase(), argumentOne);
 			result = manageOne.startCalculating();
 			return result;
 		}
 		
 		if (operation.equalsIgnoreCase("Lowercase")) {
-			manageOne = new ManageOneArgument(new simpleModifier.lowerCase(), argumentOne);
+			manageOne = new ManageOneArgument(new simpleModifier.LowerCase(), argumentOne);
 			result = manageOne.startCalculating();
 			return result;
 		}
