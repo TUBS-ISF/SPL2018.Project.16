@@ -34,7 +34,7 @@ Makes all letters UPPERCASE.
 Makes all letters lowercase.
 </description>
                 </feature>
-                <feature abstract="true" name="Reverse">
+                <feature name="Reverse">
                     <description>
 Reveres the give text.
 For example, the text "A simple example." will result in ".elpmaxe elpmis A".
