@@ -162,6 +162,12 @@ public class InputManager {
 			return result;
 		}
 		
+		if (operation.equalsIgnoreCase("CountSymApp")) {
+			manageOne = new ManageOneArgument(new statistics.CountSymApp(), argumentOne);
+			result = manageOne.startCalculating();
+			return result;
+		}
+		
 		// if something unexpected went wrong. (This code should normally never be reached...)
 		result = "Something went wrong if you see this message...";
 		

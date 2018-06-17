@@ -144,7 +144,7 @@ Creates various statistics to the given input.
 Counts the number of given symbols.
 </description>
                 </feature>
-                <feature abstract="true" name="CountSymbolAppearance">
+                <feature name="CountSymbolAppearance">
                     <description>
 Counts how often each symbol appears.
 </description>

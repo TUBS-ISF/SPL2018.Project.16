@@ -127,6 +127,15 @@ public class PluginManager {
 		reversevalues.add(formatHelp("Reverse: Reverses the given input.", "Reverse 'input'"));
 		pluginList.put("reverse", reversevalues);
 		
+		// Plugin CountSymApp
+		List<String> countsymappvalues = new ArrayList<String>();
+		countsymappvalues.add("enabled");
+		countsymappvalues.add("1");
+		countsymappvalues.add(
+				formatHelp("CountSymApp: Counts the appearance of each symbol in the given input.",
+						"CountSymApp 'input'"));
+		pluginList.put("countsymapp", countsymappvalues);
+		
 		return pluginList;
 	}
 	
