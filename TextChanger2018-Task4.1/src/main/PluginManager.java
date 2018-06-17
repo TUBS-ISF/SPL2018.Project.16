@@ -120,6 +120,13 @@ public class PluginManager {
 				"LongComSub 'String1' 'String2'"));
 		pluginList.put("longcomsub", longcomsubvalues);
 		
+		// Plugin ROT13
+		List<String> reversevalues = new ArrayList<String>();
+		reversevalues.add("enabled");
+		reversevalues.add("1");
+		reversevalues.add(formatHelp("Reverse: Reverses the given input.", "Reverse 'input'"));
+		pluginList.put("reverse", reversevalues);
+		
 		return pluginList;
 	}
 	
