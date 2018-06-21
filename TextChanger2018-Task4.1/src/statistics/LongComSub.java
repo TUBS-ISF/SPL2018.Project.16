@@ -31,9 +31,10 @@ public class LongComSub implements interfaces.TwoArguments {
 				while (string1.charAt(i + currentChar) == string2.charAt(j + currentChar)) {
 					
 					currentChar++;
-					if (((i + currentChar) >= string1.length())
-							|| ((j + currentChar) >= string2.length()))
+					if (i + currentChar >= string1.length()
+							|| j + currentChar >= string2.length()) {
 						break;
+					}
 				}
 				// replace > with >= to get the last substring (instead the first),
 				// if serveral longest common substrings of same length exists

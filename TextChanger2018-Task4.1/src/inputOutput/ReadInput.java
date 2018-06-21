@@ -12,10 +12,10 @@ public class ReadInput {
 	public static String read() {
 		
 		@SuppressWarnings("resource")
-		Scanner inputScanner = new Scanner(System.in);
-		String input = "";
+		final Scanner inputScanner = new Scanner(System.in);
+		final String input;
 		
-		System.out.print("Input: ");
+		WriteOutput.write("Input: ");
 		
 		input = inputScanner.nextLine();
 		

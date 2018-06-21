@@ -18,7 +18,7 @@ public class MD5 implements interfaces.OneArgument {
 		
 		try {
 			// prepare md
-			MessageDigest md = MessageDigest.getInstance("MD5");
+			final MessageDigest md = MessageDigest.getInstance("MD5");
 			md.reset();
 			
 			// create hash in byte format

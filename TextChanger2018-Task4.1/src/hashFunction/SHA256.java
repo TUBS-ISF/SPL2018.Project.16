@@ -18,7 +18,7 @@ public class SHA256 implements interfaces.OneArgument {
 		
 		try {
 			// prepare md
-			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			final MessageDigest md = MessageDigest.getInstance("SHA-256");
 			md.reset();
 			
 			// create hash in byte format

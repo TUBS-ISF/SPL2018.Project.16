@@ -55,33 +55,33 @@ public class DES implements interfaces.TwoArguments {
 		try {
 			
 			// convert the password from String to SecretKeySpec
-			SecretKeySpec key = convertPassword(password);
+			final SecretKeySpec key = convertPassword(password);
 			if (key == null) {
 				return "Error: DES: Can't convert the key from String to SecretKeySpec.";
 			}
 			
 			// prepare cipher for encryption
-			Cipher cipherEncrypt = Cipher.getInstance("DES/ECB/PKCS5Padding");
+			final Cipher cipherEncrypt = Cipher.getInstance("DES/ECB/PKCS5Padding");
 			cipherEncrypt.init(Cipher.ENCRYPT_MODE, key);
 			
 			// Encrypt the text
 			byte[] textEncrypted = cipherEncrypt.doFinal(input.getBytes());
 			
 			// convert bytes to Base64 String (for readability).
-			BASE64Encoder encryptedBASE64 = new BASE64Encoder();
+			final BASE64Encoder encryptedBASE64 = new BASE64Encoder();
 			String resultEncrypted = encryptedBASE64.encode(textEncrypted);
 			
 			// prepare cipher for encryption
-			Cipher cipherDecrypt = Cipher.getInstance("DES/ECB/PKCS5Padding");
+			final Cipher cipherDecrypt = Cipher.getInstance("DES/ECB/PKCS5Padding");
 			cipherDecrypt.init(Cipher.DECRYPT_MODE, key);
 			
 			// Decrypt the text
-			byte[] textDecrypted = cipherDecrypt.doFinal(textEncrypted);
+			final byte[] textDecrypted = cipherDecrypt.doFinal(textEncrypted);
 			String resultDecrypted = new String(textDecrypted);
 			
-			String resultNote1 = "Warning: Buggy! Don't use this program.";
+			final String resultNote1 = "Warning: Buggy! Don't use this program.";
 			
-			String resultNote2 = "Note: The given input had been encrypted and "
+			final String resultNote2 = "Note: The given input had been encrypted and "
 					+ "afterwards decrypted again, using the same password. "
 					+ "(Since it's unknown here whether the original input was "
 					+ "already encrypted or not.)";
@@ -123,10 +123,10 @@ public class DES implements interfaces.TwoArguments {
 			// Convert the password into an byte-Array.
 			byte[] passwordByte;
 			
-			passwordByte = (password).getBytes("UTF-8");
+			passwordByte = password.getBytes("UTF-8");
 			
 			// hash the array with SHA-256
-			MessageDigest sha = MessageDigest.getInstance("SHA-256");
+			final MessageDigest sha = MessageDigest.getInstance("SHA-256");
 			passwordByte = sha.digest(passwordByte);
 			
 			// only use the first 64 bit
