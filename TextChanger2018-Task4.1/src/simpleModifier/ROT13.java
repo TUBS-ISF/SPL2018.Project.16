@@ -1,6 +1,7 @@
 package simpleModifier;
 
 public class ROT13 implements interfaces.OneArgument {
+	
 	/**
 	 * This classgets an String and calculates the ROT13 result.
 	 * 

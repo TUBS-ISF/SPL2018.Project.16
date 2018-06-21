@@ -11,6 +11,6 @@ package interfaces;
  */
 public interface OneArgument {
 	
-	public String calculate(String argumentOne);
+	String calculate(String argumentOne);
 	
 }

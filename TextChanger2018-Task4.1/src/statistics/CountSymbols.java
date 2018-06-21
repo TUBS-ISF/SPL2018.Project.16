@@ -13,10 +13,10 @@ public class CountSymbols implements interfaces.OneArgument {
 	public String calculate(String input) {
 		
 		// calculate the length of the input
-		int resultInt = input.length();
+		final int resultInt = input.length();
 		
 		// convert to String, since string is needed for output
-		String resultString = String.valueOf(resultInt);
+		final String resultString = String.valueOf(resultInt);
 		
 		// return the result
 		return resultString;

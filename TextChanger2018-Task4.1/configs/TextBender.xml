@@ -6,8 +6,7 @@
     <feature manual="selected" name="UpperCase"/>
     <feature manual="selected" name="LowerCase"/>
     <feature manual="selected" name="Reverse"/>
-    <feature automatic="selected" name="Input"/>
+    <feature automatic="selected" name="InputOutput"/>
     <feature automatic="selected" name="In_Console"/>
-    <feature automatic="selected" name="Output"/>
     <feature automatic="selected" name="Out_Console"/>
 </configuration>

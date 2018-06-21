@@ -14,7 +14,7 @@ public class RandomNumber implements interfaces.OneArgument {
 	@Override
 	public String calculate(String lengthStr) {
 		
-		int length = 0;
+		final int length;
 		
 		// convert the string to int. Checks if the input was a number at all.
 		try {
@@ -31,14 +31,14 @@ public class RandomNumber implements interfaces.OneArgument {
 		}
 		
 		// calculates a random number in SecureRandom format.
-		SecureRandom secran = new SecureRandom();
+		final SecureRandom secran = new SecureRandom();
 		
 		// the maximum value of the generated random number
-		int maxRandom = (int) Math.pow(10, length); // 10 ** length;
+		final int maxRandom = (int) Math.pow(10, length); // 10 ** length;
 		
 		// calculates an random number between 0 and the calculated maximum
 		// value
-		int randomInt = secran.nextInt(maxRandom);
+		final int randomInt = secran.nextInt(maxRandom);
 		
 		// convert int to String
 		String randomStr = String.valueOf(randomInt);

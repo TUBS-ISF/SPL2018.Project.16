@@ -28,7 +28,7 @@ public class PluginManager {
 	 * 
 	 * @return The HashMap.
 	 */
-	public static HashMap<String, List<String>> pluginList() {
+	static HashMap<String, List<String>> pluginList() {
 		
 		// The list of all Plugins with info to status and argument number
 		HashMap<String, List<String>> pluginList = new HashMap<String, List<String>>();
@@ -127,14 +127,14 @@ public class PluginManager {
 		reversevalues.add(formatHelp("Reverse: Reverses the given input.", "Reverse 'input'"));
 		pluginList.put("reverse", reversevalues);
 		
-		// Plugin CountSymApp
-		List<String> countsymappvalues = new ArrayList<String>();
-		countsymappvalues.add("enabled");
-		countsymappvalues.add("1");
-		countsymappvalues.add(
-				formatHelp("CountSymApp: Counts the appearance of each symbol in the given input.",
-						"CountSymApp 'input'"));
-		pluginList.put("countsymapp", countsymappvalues);
+		// Plugin CountSymAppear
+		List<String> countsymappearvalues = new ArrayList<String>();
+		countsymappearvalues.add("enabled");
+		countsymappearvalues.add("1");
+		countsymappearvalues.add(formatHelp(
+				"CountSymAppear: Counts the appearance of each symbol in the given input.",
+				"CountSymAppear 'input'"));
+		pluginList.put("countsymappear", countsymappearvalues);
 		
 		return pluginList;
 	}

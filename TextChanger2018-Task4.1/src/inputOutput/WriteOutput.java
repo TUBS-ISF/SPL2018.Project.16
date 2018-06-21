@@ -1,4 +1,4 @@
-package main;
+package inputOutput;
 
 public class WriteOutput {
 	
@@ -8,7 +8,7 @@ public class WriteOutput {
 	 * @param output
 	 *        The output which should be written to the console.
 	 */
-	static void write(String output) {
+	public static void write(String output) {
 		System.out.println(output);
 	}
 	

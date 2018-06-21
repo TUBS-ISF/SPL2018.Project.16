@@ -1,6 +1,4 @@
-package main;
-
-import interfaces.TwoArguments;
+package interfaces;
 
 public class ManageTwoArguments {
 	

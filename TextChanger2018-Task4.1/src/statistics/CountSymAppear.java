@@ -3,7 +3,7 @@ package statistics;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CountSymApp implements interfaces.OneArgument {
+public class CountSymAppear implements interfaces.OneArgument {
 	
 	/**
 	 * This class counts how often each symbol appears in a given String.

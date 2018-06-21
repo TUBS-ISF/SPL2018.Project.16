@@ -2,6 +2,9 @@ package main;
 
 import java.util.Arrays;
 
+import inputOutput.WriteOutput;
+import interfaces.ManageOneArgument;
+import interfaces.ManageTwoArguments;
 import main.PluginManager;
 
 public class InputManager {
@@ -162,8 +165,8 @@ public class InputManager {
 			return result;
 		}
 		
-		if (operation.equalsIgnoreCase("CountSymApp")) {
-			manageOne = new ManageOneArgument(new statistics.CountSymApp(), argumentOne);
+		if (operation.equalsIgnoreCase("CountSymAppear")) {
+			manageOne = new ManageOneArgument(new statistics.CountSymAppear(), argumentOne);
 			result = manageOne.startCalculating();
 			return result;
 		}

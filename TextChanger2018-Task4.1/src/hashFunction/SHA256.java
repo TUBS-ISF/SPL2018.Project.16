@@ -31,7 +31,7 @@ public class SHA256 implements interfaces.OneArgument {
 			
 		} catch (NoSuchAlgorithmException e) {
 			
-			return "Error: Hash Algorithm \"SHA256\" not found.";
+			return "Intern Error: Hash Algorithm \"SHA256\" not found.";
 		}
 	}
 }

@@ -12,7 +12,7 @@ public class LowerCase implements interfaces.OneArgument {
 	@Override
 	public String calculate(String input) {
 		
-		String inputLower = input.toLowerCase();
+		final String inputLower = input.toLowerCase();
 		
 		return inputLower;
 		

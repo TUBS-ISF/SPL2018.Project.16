@@ -3,6 +3,7 @@ package main;
 import java.util.List;
 import java.util.Map.Entry;
 
+import inputOutput.WriteOutput;
 import main.PluginManager;
 
 public class Texts {
@@ -48,7 +49,7 @@ public class Texts {
 	/**
 	 * This class prints the program help/manual.
 	 */
-	public static void help() {
+	static void help() {
 		// TODO: Enable only when necessary.
 		WriteOutput.write("This is an overview of all possible arguments:");
 		WriteOutput.write("Note: 'input' stands for any input.");

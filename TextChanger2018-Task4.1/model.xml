@@ -59,7 +59,7 @@ For info about DES see https://en.wikipedia.org/wiki/Data_Encryption_Standard
 </description>
                 </feature>
             </and>
-            <and abstract="true" mandatory="true" name="Input">
+            <and abstract="true" mandatory="true" name="InputOutput">
                 <description>
 Input of parameters.
 </description>
@@ -69,21 +69,16 @@ Input of parameters (and text) with the console.
 This is mandatory.
 </description>
                 </feature>
-                <feature abstract="true" name="In_Textfield">
-                    <description>
-Input of parameters (and text) with an GUI-textfield.
-Requires GUI.
-</description>
-                </feature>
-            </and>
-            <and abstract="true" mandatory="true" name="Output">
-                <description>
-Output of results.
-</description>
                 <feature mandatory="true" name="Out_Console">
                     <description>
 Output of results with the console.
 This is mandatory.
+</description>
+                </feature>
+                <feature abstract="true" name="In_Textfield">
+                    <description>
+Input of parameters (and text) with an GUI-textfield.
+Requires GUI.
 </description>
                 </feature>
                 <feature abstract="true" name="Out_Textfield">

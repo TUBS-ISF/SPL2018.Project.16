@@ -60,7 +60,7 @@ public class AES implements interfaces.TwoArguments {
 		try {
 			
 			// convert the password from String to SecretKeySpec
-			SecretKeySpec key = convertPassword(password);
+			final SecretKeySpec key = convertPassword(password);
 			if (key == null) {
 				return "Error: AES: Can't convert the key from String to SecretKeySpec.";
 			}

@@ -12,7 +12,7 @@ public class UpperCase implements interfaces.OneArgument {
 	@Override
 	public String calculate(String input) {
 		
-		String inputUpper = input.toUpperCase();
+		final String inputUpper = input.toUpperCase();
 		
 		return inputUpper;
 		

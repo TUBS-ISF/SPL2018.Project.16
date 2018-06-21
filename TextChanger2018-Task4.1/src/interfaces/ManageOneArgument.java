@@ -1,6 +1,4 @@
-package main;
-
-import interfaces.OneArgument;
+package interfaces;
 
 public class ManageOneArgument {
 	

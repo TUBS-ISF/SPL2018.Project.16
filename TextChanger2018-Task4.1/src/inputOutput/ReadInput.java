@@ -1,4 +1,4 @@
-package main;
+package inputOutput;
 
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ public class ReadInput {
 	 * 
 	 * @return The String given on the console.
 	 */
-	static String read() {
+	public static String read() {
 		
 		@SuppressWarnings("resource")
 		Scanner inputScanner = new Scanner(System.in);

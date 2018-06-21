@@ -1,5 +1,8 @@
 package main;
 
+import inputOutput.ReadInput;
+import inputOutput.WriteOutput;
+
 public class TextChanger2018 {
 	
 	/**

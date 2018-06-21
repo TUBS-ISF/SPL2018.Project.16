@@ -31,7 +31,7 @@ public class MD5 implements interfaces.OneArgument {
 			
 		} catch (NoSuchAlgorithmException e) {
 			
-			return "Error: Hash Algorithm \"MD5\" not found.";
+			return "Intern Error: Hash Algorithm \"MD5\" not found.";
 		}
 	}
 }
