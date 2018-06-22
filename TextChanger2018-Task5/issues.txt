@@ -1,0 +1,9 @@
+Current Issues:
+
+The PluginManager doesn't properly work.
+It should collect all entrys for the hashmap and returns the collection of all entries.
+Instead it returns only the latest entry.
+Temporary solution:
+Put the full list into the first feature (In_Console) and remove the PluginList from the other features.
+This way the program works, as long as only currently implemented features are selected.
+If an non-implemented feature is choosen the "somethign went wrong" mesage is shown.

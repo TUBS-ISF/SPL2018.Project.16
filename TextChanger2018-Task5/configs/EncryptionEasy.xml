@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="TextModifier2018-Task1"/>
+    <feature automatic="selected" manual="selected" name="EnDeCrypt"/>
+    <feature manual="selected" name="AES"/>
+    <feature manual="selected" name="DES"/>
+    <feature automatic="selected" name="InputOutput"/>
+    <feature automatic="selected" name="In_Console"/>
+    <feature automatic="selected" name="Out_Console"/>
+</configuration>
