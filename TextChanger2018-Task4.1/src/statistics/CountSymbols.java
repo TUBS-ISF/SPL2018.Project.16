@@ -16,7 +16,7 @@ public class CountSymbols implements interfaces.OneArgument {
 		final int resultInt = input.length();
 		
 		// convert to String, since string is needed for output
-		final String resultString = String.valueOf(resultInt);
+		final String resultString = "Number of Symbols: " + String.valueOf(resultInt);
 		
 		// return the result
 		return resultString;

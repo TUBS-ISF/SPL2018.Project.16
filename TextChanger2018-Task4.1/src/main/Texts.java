@@ -13,7 +13,7 @@ public class Texts {
 	 */
 	static void introduce() {
 		
-		final String introduction = "Welcome to TextChanger2018!\n"
+		final String introduction = "Welcome to TextChanger2018! (Version 4.1)\n"
 				+ "For a list of all possible functions type 'help'. For Information about the license type 'license'.\n"
 				+ "To exit the program type 'exit' or 'quit' or 'q'.";
 		
