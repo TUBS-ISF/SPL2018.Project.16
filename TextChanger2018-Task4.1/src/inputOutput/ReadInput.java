@@ -13,14 +13,13 @@ public class ReadInput {
 		
 		@SuppressWarnings("resource")
 		final Scanner inputScanner = new Scanner(System.in);
-		final String input;
 		
-		WriteOutput.write("Input: ");
+		// important: Use NOT "println" here.
+		System.out.print("Input: ");
 		
-		input = inputScanner.nextLine();
+		final String input = inputScanner.nextLine();
 		
 		return input;
-		
 	}
 	
 }
