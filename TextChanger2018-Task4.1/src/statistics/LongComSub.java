@@ -45,7 +45,8 @@ public class LongComSub implements interfaces.TwoArguments {
 			}
 		}
 		
-		final String longComSub = string1.substring(startPosition, (startPosition + endPosition));
+		final String longComSub = "Longest common Substring: "
+				+ string1.substring(startPosition, (startPosition + endPosition));
 		
 		// checks for empty result (if no common substring was found.)
 		if (longComSub.isEmpty()) {
