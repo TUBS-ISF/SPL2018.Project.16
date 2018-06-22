@@ -6,20 +6,33 @@ public class InputManager {
 		
 		final String result;
 		
-		final String operation= input.split("\\s+")[0].toLowerCase();
-		final String argumentOne= input.split("\\s+")[1];
-		final String argumentTwo= input.split("\\s+")[2];
+		final String operation = input.split("\\s+")[0].toLowerCase();
+		final String argumentOne;
+		final String argumentTwo;
 		
 		final ManageOneArgument manageOne;
-		final ManageTwoArguments manageTwo;	
+		final ManageTwoArguments manageTwo;
 		
+		// number arguments (without the operation itself)
+		final int numberArguments = input.split("\\s+").length - 1;
+		
+		// creates variables argumentOne and ArgumentTwo
+		if (numberArguments >= 1) {
+			argumentOne = input.split("\\s+")[1];
+		} else {
+			argumentOne = null;
+		}
+		if (numberArguments >= 2) {
+			argumentTwo = input.split("\\s+")[2];
+		} else {
+			argumentTwo = null;
+		}
 		
 		if (operation.equalsIgnoreCase("AES")) {
 			manageTwo = new ManageTwoArguments(new enDeCrypt.AES(), argumentOne, argumentTwo);
 			result = manageTwo.startCalculating();
 			return result;
 		}
-
 		
 		return original(input);
 		

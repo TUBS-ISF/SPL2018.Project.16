@@ -24,22 +24,13 @@ public class InputManager {
 		// initialise empty String for result.
 		final String result;
 		
-		// number arguments (without the operation itself)
-		final int numberArguments = input.split("\\s+").length - 1;
-		
-		final String operation;
+		final String operation = input.split("\\s+")[0].toLowerCase();
 		final String argumentOne;
 		
 		final ManageOneArgument manageOne;
 		
-		// saves operation in parameter 'operation'
-		// raise error if no input given
-		if (numberArguments >= 0) {
-			operation = input.split("\\s+")[0].toLowerCase();
-		} else {
-			result = "Error: No input given.";
-			return result;
-		}
+		// number arguments (without the operation itself)
+		final int numberArguments = input.split("\\s+").length - 1;
 		
 		// creates variables argumentOne and ArgumentTwo
 		if (numberArguments >= 1) {
@@ -48,17 +39,14 @@ public class InputManager {
 			argumentOne = null;
 		}
 		
-		
 		if (operation.equalsIgnoreCase("LowerCase")) {
 			manageOne = new ManageOneArgument(new simpleModifier.LowerCase(), argumentOne);
 			result = manageOne.startCalculating();
 			return result;
 		}
 		
-		
 		return original(input);
 		
 	}
-	
 	
 }
