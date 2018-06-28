@@ -209,7 +209,6 @@ public class InputManager {
 			WriteOutput.write("Allowed for disabled: " + Arrays.toString(disabled));
 			return false;
 		}
-		
 	}
 	
 	// Check if the correct number of arguments is given
