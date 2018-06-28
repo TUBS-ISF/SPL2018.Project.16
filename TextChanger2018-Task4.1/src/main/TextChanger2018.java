@@ -21,7 +21,6 @@ public class TextChanger2018 {
 			String result = InputManager.manage(input);
 			
 			WriteOutput.write(result);
-			
 		}
 		
 	}
