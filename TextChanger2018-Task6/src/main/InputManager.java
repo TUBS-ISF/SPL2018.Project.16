@@ -177,11 +177,18 @@ public class InputManager {
 			return result;
 		}
 		
+		if (Parameters.getFeatureUsed()) {
+			// System.out.println("Feature used.");
+			Parameters.setFeatureUsedFalse();
+			return "";
+		}
+		
 		// if something unexpected went wrong. (This code should normally never be reached...)
 		// result = "Something went wrong if you see this message...";
 		
-		// TODO: Find a way to better signal an feature is disabled.
-		result = "Operation Finished. (If no output is shown the choosen feature is disabled.)";
+		// This can only be reached if an feature exists but had not been used.
+		// This in turn can only happen if it is disabled.
+		result = "Selected Feature is disabled.";
 		
 		return result;
 		

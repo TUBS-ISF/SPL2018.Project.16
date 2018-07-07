@@ -5,6 +5,7 @@ public class Parameters {
 	private String operation;
 	private String argumentOne;
 	private String argumentTwo;
+	private static boolean featureUsed;
 	
 	public Parameters(String input) {
 		
@@ -20,6 +21,8 @@ public class Parameters {
 			argumentTwo = input.split("\\s+")[2];
 		}
 		
+		this.featureUsed = false;
+		
 	}
 	
 	public String getOperation() {
@@ -32,6 +35,18 @@ public class Parameters {
 	
 	public String getArgumentTwo() {
 		return this.argumentTwo;
+	}
+	
+	public static boolean getFeatureUsed() {
+		return Parameters.featureUsed;
+	}
+	
+	public static void setFeatureUsedTrue() {
+		Parameters.featureUsed = true;
+	}
+	
+	public static void setFeatureUsedFalse() {
+		Parameters.featureUsed = false;
 	}
 	
 }

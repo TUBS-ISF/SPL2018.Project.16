@@ -26,6 +26,10 @@ public aspect UpperCase {
 			manageOne = new ManageOneArgument(new simpleModifier.UpperCase(), argumentOne);
 			result = manageOne.startCalculating();
 			WriteOutput.write(result);
+			
+			Parameters.setFeatureUsedTrue();
+			
+			//para.setFeatureUsedTrue();
 		}
 		
 	}
