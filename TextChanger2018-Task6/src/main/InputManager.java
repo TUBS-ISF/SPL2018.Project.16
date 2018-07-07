@@ -100,16 +100,6 @@ public class InputManager {
 		
 		final boolean startChecksHere = startPlugins(input);
 		
-		// System.out.println(test);
-		
-		/*
-		if (operation.equalsIgnoreCase("UpperCase")) {
-			manageOne = new ManageOneArgument(new simpleModifier.UpperCase(), argumentOne);
-			result = manageOne.startCalculating();
-			return result;
-		}
-		*/
-		
 		if (operation.equalsIgnoreCase("Lowercase")) {
 			manageOne = new ManageOneArgument(new simpleModifier.LowerCase(), argumentOne);
 			result = manageOne.startCalculating();
@@ -194,6 +184,7 @@ public class InputManager {
 		
 	}
 	
+	// This doesn nothing. It only exists to create an pointcut.
 	private static boolean startPlugins(String test) {
 		return true;
 	}

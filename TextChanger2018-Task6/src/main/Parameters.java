@@ -7,6 +7,13 @@ public class Parameters {
 	private String argumentTwo;
 	private static boolean featureUsed;
 	
+	/**
+	 * This class is used to access the parameters in the aspects,
+	 * since the usual way doesn't work.
+	 * 
+	 * @param input
+	 *        The Input.
+	 */
 	public Parameters(String input) {
 		
 		final int numberArguments = input.split("\\s+").length - 1;
@@ -21,7 +28,7 @@ public class Parameters {
 			argumentTwo = input.split("\\s+")[2];
 		}
 		
-		this.featureUsed = false;
+		Parameters.featureUsed = false;
 		
 	}
 	

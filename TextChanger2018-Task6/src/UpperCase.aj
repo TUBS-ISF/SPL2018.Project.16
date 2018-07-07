@@ -10,6 +10,12 @@ public aspect UpperCase {
 	// Das returning bezieht sich auf den return-Wert der Methode, die bei After gennant wird.
 	// Mögliche Lösung: Hier direkt ein WriteOutput einbauen und einfach weiter durch laufen lassen.
 	
+	/**
+	 * This aspect enables the feature "UpperCase."
+	 * 
+	 * @param input
+	 *        The Input.
+	 */
 	after(String input): execution(boolean startPlugins(String)) && args(input) {
 		
 		final String result;
@@ -28,8 +34,6 @@ public aspect UpperCase {
 			WriteOutput.write(result);
 			
 			Parameters.setFeatureUsedTrue();
-			
-			//para.setFeatureUsedTrue();
 		}
 		
 	}
