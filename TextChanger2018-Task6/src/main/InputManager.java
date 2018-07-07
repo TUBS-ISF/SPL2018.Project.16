@@ -98,13 +98,17 @@ public class InputManager {
 		// Note: since the legitimitation of the operation is already checked
 		// above it's not checked again.
 		
-		final boolean startChecksHere = startPlugins();
+		final boolean startChecksHere = startPlugins(input);
 		
+		// System.out.println(test);
+		
+		/*
 		if (operation.equalsIgnoreCase("UpperCase")) {
 			manageOne = new ManageOneArgument(new simpleModifier.UpperCase(), argumentOne);
 			result = manageOne.startCalculating();
 			return result;
 		}
+		*/
 		
 		if (operation.equalsIgnoreCase("Lowercase")) {
 			manageOne = new ManageOneArgument(new simpleModifier.LowerCase(), argumentOne);
@@ -174,13 +178,16 @@ public class InputManager {
 		}
 		
 		// if something unexpected went wrong. (This code should normally never be reached...)
-		result = "Something went wrong if you see this message...";
+		// result = "Something went wrong if you see this message...";
+		
+		// TODO: Find a way to better signal an feature is disabled.
+		result = "Operation Finished. (If no output is shown the choosen feature is disabled.)";
 		
 		return result;
 		
 	}
 	
-	private static boolean startPlugins() {
+	private static boolean startPlugins(String test) {
 		return true;
 	}
 	
