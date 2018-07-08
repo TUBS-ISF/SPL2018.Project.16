@@ -30,6 +30,9 @@ public class RandomString implements interfaces.OneArgument {
 		if (length == 0) {
 			return "Error: Wrong Argument: Length of random number was defines as '0'.";
 		}
+		if (length < 0) {
+			return "Error: Wrong Argument: Length of random number was negativ. An positive number is required";
+		}
 		
 		// The alphabet of all possible characters.
 		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789";

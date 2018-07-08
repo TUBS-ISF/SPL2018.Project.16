@@ -29,6 +29,9 @@ public class RandomNumber implements interfaces.OneArgument {
 		if (length == 0) {
 			return "Error: Wrong Argument: Length of random number was defines as '0'.";
 		}
+		if (length < 0) {
+			return "Error: Wrong Argument: Length of random number was negativ. An positive number is required";
+		}
 		
 		// calculates a random number in SecureRandom format.
 		final SecureRandom secran = new SecureRandom();
