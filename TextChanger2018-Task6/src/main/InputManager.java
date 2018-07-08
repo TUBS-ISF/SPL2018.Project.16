@@ -98,27 +98,7 @@ public class InputManager {
 		// Note: since the legitimitation of the operation is already checked
 		// above it's not checked again.
 		
-		Parameters.setFeatureUsedTrue();
-		
 		final boolean startChecksHere = startPlugins(input);
-		
-		if (operation.equalsIgnoreCase("RandomNumber")) {
-			manageOne = new ManageOneArgument(new randomGenerator.RandomNumber(), argumentOne);
-			result = manageOne.startCalculating();
-			return result;
-		}
-		
-		if (operation.equalsIgnoreCase("MD5")) {
-			manageOne = new ManageOneArgument(new hashFunction.MD5(), argumentOne);
-			result = manageOne.startCalculating();
-			return result;
-		}
-		
-		if (operation.equalsIgnoreCase("CountSymbols")) {
-			manageOne = new ManageOneArgument(new statistics.CountSymbols(), argumentOne);
-			result = manageOne.startCalculating();
-			return result;
-		}
 		
 		if (operation.equalsIgnoreCase("AES")) {
 			manageTwo = new ManageTwoArguments(new enDeCrypt.AES(), argumentOne, argumentTwo);
