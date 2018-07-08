@@ -6,7 +6,7 @@ import main.Parameters;
 public aspect LowerCase {
 	
 	/**
-	 * This aspect enables the feature "UpperCase."
+	 * This aspect enables the feature "LowerCase."
 	 * 
 	 * @param input
 	 *        The Input.
@@ -24,7 +24,6 @@ public aspect LowerCase {
 		final ManageTwoArguments manageTwo;
 		
 		if (operation.equalsIgnoreCase("LowerCase")) {
-			Parameters.setFeatureUsedTrue();
 			manageOne = new ManageOneArgument(new simpleModifier.LowerCase(), argumentOne);
 			result = manageOne.startCalculating();
 			WriteOutput.write(result);

@@ -6,7 +6,7 @@ import main.Parameters;
 public aspect SHA256 {
 	
 	/**
-	 * This aspect enables the feature "UpperCase."
+	 * This aspect enables the feature "SHA256."
 	 * 
 	 * @param input
 	 *        The Input.

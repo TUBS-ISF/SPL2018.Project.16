@@ -6,7 +6,7 @@ import main.Parameters;
 public aspect AES {
 	
 	/**
-	 * This aspect enables the feature "UpperCase."
+	 * This aspect enables the feature "AES."
 	 * 
 	 * @param input
 	 *        The Input.

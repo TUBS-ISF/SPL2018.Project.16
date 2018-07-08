@@ -6,7 +6,7 @@ import main.Parameters;
 public aspect Reverse {
 	
 	/**
-	 * This aspect enables the feature "UpperCase."
+	 * This aspect enables the feature "Reverse."
 	 * 
 	 * @param input
 	 *        The Input.

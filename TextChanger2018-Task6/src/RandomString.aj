@@ -24,7 +24,6 @@ public aspect RandomString {
 		final ManageTwoArguments manageTwo;
 		
 		if (operation.equalsIgnoreCase("RandomString")) {
-			Parameters.setFeatureUsedTrue();
 			manageOne = new ManageOneArgument(new randomGenerator.RandomString(), argumentOne);
 			result = manageOne.startCalculating();
 			WriteOutput.write(result);

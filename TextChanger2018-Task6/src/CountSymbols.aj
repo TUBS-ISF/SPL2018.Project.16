@@ -6,7 +6,7 @@ import main.Parameters;
 public aspect CountSymbols {
 	
 	/**
-	 * This aspect enables the feature "UpperCase."
+	 * This aspect enables the feature "CountSymbols."
 	 * 
 	 * @param input
 	 *        The Input.

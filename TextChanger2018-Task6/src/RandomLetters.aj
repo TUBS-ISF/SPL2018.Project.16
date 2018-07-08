@@ -24,7 +24,6 @@ public aspect RandomLetters {
 		final ManageTwoArguments manageTwo;
 		
 		if (operation.equalsIgnoreCase("RandomLetters")) {
-			Parameters.setFeatureUsedTrue();
 			manageOne = new ManageOneArgument(new randomGenerator.RandomLetters(), argumentOne);
 			result = manageOne.startCalculating();
 			WriteOutput.write(result);

@@ -5,11 +5,6 @@ import main.Parameters;
 
 public aspect UpperCase {
 	
-	// TODO: Ein Returnwert muss ermöglicht werden
-	// after(String input) returning(String result): execution(boolean startPlugins(String)) && args(input)
-	// Das returning bezieht sich auf den return-Wert der Methode, die bei After gennant wird.
-	// Mögliche Lösung: Hier direkt ein WriteOutput einbauen und einfach weiter durch laufen lassen.
-	
 	/**
 	 * This aspect enables the feature "UpperCase."
 	 * 

@@ -6,7 +6,7 @@ import main.Parameters;
 public aspect CountSymAppear {
 	
 	/**
-	 * This aspect enables the feature "UpperCase."
+	 * This aspect enables the feature "CountSymAppear."
 	 * 
 	 * @param input
 	 *        The Input.

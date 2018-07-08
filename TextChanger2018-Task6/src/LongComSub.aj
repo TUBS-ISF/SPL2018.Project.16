@@ -6,7 +6,7 @@ import main.Parameters;
 public aspect LongComSub {
 	
 	/**
-	 * This aspect enables the feature "UpperCase."
+	 * This aspect enables the feature "LongComSub."
 	 * 
 	 * @param input
 	 *        The Input.

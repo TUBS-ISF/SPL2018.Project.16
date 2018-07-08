@@ -6,7 +6,7 @@ import main.Parameters;
 public aspect DES {
 	
 	/**
-	 * This aspect enables the feature "UpperCase."
+	 * This aspect enables the feature "DES."
 	 * 
 	 * @param input
 	 *        The Input.

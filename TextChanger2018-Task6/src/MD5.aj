@@ -6,7 +6,7 @@ import main.Parameters;
 public aspect MD5 {
 	
 	/**
-	 * This aspect enables the feature "UpperCase."
+	 * This aspect enables the feature "MD5."
 	 * 
 	 * @param input
 	 *        The Input.

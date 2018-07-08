@@ -6,7 +6,7 @@ import main.Parameters;
 public aspect RandomNumber {
 	
 	/**
-	 * This aspect enables the feature "UpperCase."
+	 * This aspect enables the feature "RandomNumber."
 	 * 
 	 * @param input
 	 *        The Input.

@@ -12,7 +12,7 @@ public aspect ROT13 {
 	 *        The Input.
 	 */
 	after(String input): execution(boolean startPlugins(String)) && args(input) {
-		/*
+		
 		final String result;
 		
 		Parameters para = new Parameters(input);
@@ -30,7 +30,7 @@ public aspect ROT13 {
 			
 			Parameters.setFeatureUsedTrue();
 		}
-		*/
+		
 	}
 
 }
