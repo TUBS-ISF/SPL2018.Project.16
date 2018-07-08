@@ -28,8 +28,6 @@ public class Parameters {
 			argumentTwo = input.split("\\s+")[2];
 		}
 		
-		Parameters.featureUsed = false;
-		
 	}
 	
 	public String getOperation() {

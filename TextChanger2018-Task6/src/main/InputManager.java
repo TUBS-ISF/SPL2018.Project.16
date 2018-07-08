@@ -98,13 +98,9 @@ public class InputManager {
 		// Note: since the legitimitation of the operation is already checked
 		// above it's not checked again.
 		
-		final boolean startChecksHere = startPlugins(input);
+		Parameters.setFeatureUsedTrue();
 		
-		if (operation.equalsIgnoreCase("Lowercase")) {
-			manageOne = new ManageOneArgument(new simpleModifier.LowerCase(), argumentOne);
-			result = manageOne.startCalculating();
-			return result;
-		}
+		final boolean startChecksHere = startPlugins(input);
 		
 		if (operation.equalsIgnoreCase("RandomNumber")) {
 			manageOne = new ManageOneArgument(new randomGenerator.RandomNumber(), argumentOne);
@@ -178,7 +174,7 @@ public class InputManager {
 		
 	}
 	
-	// This doesn nothing. It only exists to create an pointcut.
+	// This does nothing. It only exists to create an pointcut.
 	private static boolean startPlugins(String test) {
 		return true;
 	}
