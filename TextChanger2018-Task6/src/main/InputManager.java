@@ -100,25 +100,6 @@ public class InputManager {
 		
 		final boolean startChecksHere = startPlugins(input);
 		
-		if (operation.equalsIgnoreCase("LongComSub")) {
-			manageTwo = new ManageTwoArguments(new statistics.LongComSub(), argumentOne,
-					argumentTwo);
-			result = manageTwo.startCalculating();
-			return result;
-		}
-		
-		if (operation.equalsIgnoreCase("Reverse")) {
-			manageOne = new ManageOneArgument(new simpleModifier.Reverse(), argumentOne);
-			result = manageOne.startCalculating();
-			return result;
-		}
-		
-		if (operation.equalsIgnoreCase("CountSymAppear")) {
-			manageOne = new ManageOneArgument(new statistics.CountSymAppear(), argumentOne);
-			result = manageOne.startCalculating();
-			return result;
-		}
-		
 		if (Parameters.getFeatureUsed()) {
 			// System.out.println("Feature used.");
 			Parameters.setFeatureUsedFalse();
