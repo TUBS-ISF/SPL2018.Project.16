@@ -124,12 +124,6 @@ public class InputManager {
 			return result;
 		}
 		
-		if (operation.equalsIgnoreCase("ROT13")) {
-			manageOne = new ManageOneArgument(new simpleModifier.ROT13(), argumentOne);
-			result = manageOne.startCalculating();
-			return result;
-		}
-		
 		if (operation.equalsIgnoreCase("AES")) {
 			manageTwo = new ManageTwoArguments(new enDeCrypt.AES(), argumentOne, argumentTwo);
 			result = manageTwo.startCalculating();
