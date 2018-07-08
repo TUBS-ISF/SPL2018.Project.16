@@ -171,6 +171,12 @@ public class InputManager {
 			return result;
 		}
 		
+		if (operation.equalsIgnoreCase("RandomString")) {
+			manageOne = new ManageOneArgument(new randomGenerator.RandomString(), argumentOne);
+			result = manageOne.startCalculating();
+			return result;
+		}
+		
 		// if something unexpected went wrong. (This code should normally never be reached...)
 		result = "Something went wrong if you see this message...";
 		
