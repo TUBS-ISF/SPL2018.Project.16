@@ -99,12 +99,12 @@ A length of the created string has to be given.
 Returns a random string with numbers of given length.
 </description>
                 </feature>
-                <feature abstract="true" name="RandomLetters">
+                <feature name="RandomLetters">
                     <description>
 Returns a random string with letters of given length.
 </description>
                 </feature>
-                <feature abstract="true" name="RandomString">
+                <feature name="RandomString">
                     <description>
 Returns a random string with numbers and letters of given length.
 </description>

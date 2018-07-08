@@ -145,6 +145,15 @@ public class PluginManager {
 				"RandomString 'length'"));
 		pluginList.put("randomstring", randomstringvalues);
 		
+		// Plugin RandomNumber
+		List<String> randomlettersvalues = new ArrayList<String>();
+		randomlettersvalues.add("enabled");
+		randomlettersvalues.add("1");
+		randomlettersvalues.add(formatHelp(
+				"RandomLetters: Calculates an random String (only letters) of given legth.",
+				"RandomLetters 'length'"));
+		pluginList.put("randomletters", randomlettersvalues);
+		
 		return pluginList;
 	}
 	
