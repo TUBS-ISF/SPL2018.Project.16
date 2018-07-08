@@ -136,6 +136,24 @@ public class PluginManager {
 				"CountSymAppear 'input'"));
 		pluginList.put("countsymappear", countsymappearvalues);
 		
+		// Plugin RandomNumber
+		List<String> randomstringvalues = new ArrayList<String>();
+		randomstringvalues.add("enabled");
+		randomstringvalues.add("1");
+		randomstringvalues.add(formatHelp(
+				"RandomString: Calculates an random String (numbers and letters) of given legth.",
+				"RandomString 'length'"));
+		pluginList.put("randomstring", randomstringvalues);
+		
+		// Plugin RandomNumber
+		List<String> randomlettersvalues = new ArrayList<String>();
+		randomlettersvalues.add("enabled");
+		randomlettersvalues.add("1");
+		randomlettersvalues.add(formatHelp(
+				"RandomLetters: Calculates an random String (only letters) of given legth.",
+				"RandomLetters 'length'"));
+		pluginList.put("randomletters", randomlettersvalues);
+		
 		return pluginList;
 	}
 	
