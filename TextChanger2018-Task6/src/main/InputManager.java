@@ -100,24 +100,6 @@ public class InputManager {
 		
 		final boolean startChecksHere = startPlugins(input);
 		
-		if (operation.equalsIgnoreCase("AES")) {
-			manageTwo = new ManageTwoArguments(new enDeCrypt.AES(), argumentOne, argumentTwo);
-			result = manageTwo.startCalculating();
-			return result;
-		}
-		
-		if (operation.equalsIgnoreCase("SHA256")) {
-			manageOne = new ManageOneArgument(new hashFunction.SHA256(), argumentOne);
-			result = manageOne.startCalculating();
-			return result;
-		}
-		
-		if (operation.equalsIgnoreCase("DES")) {
-			manageTwo = new ManageTwoArguments(new enDeCrypt.DES(), argumentOne, argumentTwo);
-			result = manageTwo.startCalculating();
-			return result;
-		}
-		
 		if (operation.equalsIgnoreCase("LongComSub")) {
 			manageTwo = new ManageTwoArguments(new statistics.LongComSub(), argumentOne,
 					argumentTwo);
