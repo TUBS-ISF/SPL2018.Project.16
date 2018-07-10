@@ -1,3 +1,4 @@
+package simpleModifier;
 import inputOutput.WriteOutput;
 import interfaces.ManageOneArgument;
 import interfaces.ManageTwoArguments;
@@ -14,16 +15,13 @@ public aspect UpperCase {
 	after() returning (boolean ready): execution(boolean pluginReady()) {
 		
 		if (ready) {
-			String operation = Parameters.getOperation();
-			String argumentOne = Parameters.getArgumentOne();
-			String argumentTwo = Parameters.getArgumentTwo();
-			
-			final ManageOneArgument manageOne;
-			final ManageTwoArguments manageTwo;
-			
-			final String inputUpper = argumentOne.toUpperCase();
+			final String operation = Parameters.getOperation();
 			
 			if (operation.equalsIgnoreCase("UpperCase")) {
+				final String argumentOne = Parameters.getArgumentOne();
+				
+				final String inputUpper = argumentOne.toUpperCase();
+				
 				WriteOutput.write(inputUpper);
 				Parameters.setFeatureUsedTrue();
 			}
