@@ -15,10 +15,9 @@ public aspect AES {
 		
 		final String result;
 		
-		Parameters para = new Parameters(input);
-		String operation = para.getOperation();
-		String argumentOne = para.getArgumentOne();
-		String argumentTwo = para.getArgumentTwo();
+		String operation = Parameters.getOperation();
+		String argumentOne = Parameters.getArgumentOne();
+		String argumentTwo = Parameters.getArgumentTwo();
 		
 		final ManageOneArgument manageOne;
 		final ManageTwoArguments manageTwo;

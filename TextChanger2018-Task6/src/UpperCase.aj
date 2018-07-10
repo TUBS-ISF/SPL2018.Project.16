@@ -13,16 +13,22 @@ public aspect UpperCase {
 	 */
 	after(String input): execution(boolean startPlugins(String)) && args(input) {
 		
-		final String result;
 		
-		Parameters para = new Parameters(input);
-		String operation = para.getOperation();
-		String argumentOne = para.getArgumentOne();
-		String argumentTwo = para.getArgumentTwo();
+		String operation = Parameters.getOperation();
+		String argumentOne = Parameters.getArgumentOne();
+		String argumentTwo = Parameters.getArgumentTwo();
 		
 		final ManageOneArgument manageOne;
 		final ManageTwoArguments manageTwo;
 		
+		final String inputUpper = argumentOne.toUpperCase();
+		
+		if (operation.equalsIgnoreCase("UpperCase")) {
+			WriteOutput.write(inputUpper);
+			Parameters.setFeatureUsedTrue();
+		}
+		
+		/*
 		if (operation.equalsIgnoreCase("UpperCase")) {
 			manageOne = new ManageOneArgument(new simpleModifier.UpperCase(), argumentOne);
 			result = manageOne.startCalculating();
@@ -30,6 +36,7 @@ public aspect UpperCase {
 			
 			Parameters.setFeatureUsedTrue();
 		}
+		*/
 		
 	}
 

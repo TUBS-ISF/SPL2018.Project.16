@@ -21,54 +21,32 @@ public class InputManager {
 	 */
 	static String manage(String input) {
 		
+		// Extract data from input and put it in the variables
+		Parameters.set(input);
+		int numberArguments = Parameters.getNumberArguments();
+		String operation = Parameters.getOperation();
+		String argumentOne = Parameters.getArgumentOne();
+		String argumentTwo = Parameters.getArgumentTwo();
+		
 		// initialise empty String for result.
 		final String result;
-		
-		// number arguments (without the operation itself)
-		final int numberArguments = input.split("\\s+").length - 1;
-		
-		final String operation;
-		final String argumentOne;
-		final String argumentTwo;
 		
 		final ManageOneArgument manageOne;
 		final ManageTwoArguments manageTwo;
 		
-		// saves operation in parameter 'operation'
-		// raise error if no input given
-		if (numberArguments >= 0) {
-			operation = input.split("\\s+")[0].toLowerCase();
-		} else {
-			result = "Error: No input given.";
-			return result;
-		}
-		
-		// creates variables argumentOne and ArgumentTwo
-		if (numberArguments >= 1) {
-			argumentOne = input.split("\\s+")[1];
-		} else {
-			argumentOne = null;
-		}
-		if (numberArguments >= 2) {
-			argumentTwo = input.split("\\s+")[2];
-		} else {
-			argumentTwo = null;
-		}
-		
 		// Basic operations ***************************************************
 		
-		if (operation.equalsIgnoreCase("exit") || operation.equalsIgnoreCase("quit")
-				|| operation.equalsIgnoreCase("q")) {
+		if (operation.equals("exit") || operation.equals("quit") || operation.equals("q")) {
 			WriteOutput.write("Exit Program.");
 			System.exit(0);
 		}
 		
-		if (operation.equalsIgnoreCase("license")) {
+		if (operation.equals("license")) {
 			result = Texts.license();
 			return result;
 		}
 		
-		if (operation.equalsIgnoreCase("help")) {
+		if (operation.equals("help")) {
 			Texts.help();
 			result = "";
 			return result;
@@ -76,6 +54,12 @@ public class InputManager {
 		
 		// check for legit operation ******************************************
 		// (Plugin must exist, be enabled, have correct number arguments)
+		
+		// raise error if no arguments are given
+		// Important: This must be *below* the entries without any arguments!
+		if (numberArguments == 0) {
+			return "Error: No arguments given.";
+		}
 		
 		// check if the operation exists and is enabled
 		// otherwise return "Unknown command"
@@ -111,7 +95,7 @@ public class InputManager {
 		
 		// This can only be reached if an feature exists but had not been used.
 		// This in turn can only happen if it is disabled.
-		result = "Selected Feature is disabled.";
+		result = "Error: Selected Feature exists, but is disabled.";
 		
 		return result;
 		

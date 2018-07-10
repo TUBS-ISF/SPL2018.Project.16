@@ -2,44 +2,49 @@ package main;
 
 public class Parameters {
 	
-	private String operation;
-	private String argumentOne;
-	private String argumentTwo;
+	private static int numberArguments;
+	private static String operation;
+	private static String argumentOne;
+	private static String argumentTwo;
 	private static boolean featureUsed;
 	
 	/**
-	 * This class is used to access the parameters in the aspects,
-	 * since the usual way doesn't work.
+	 * This class is used to set the parameters like the desired operation
+	 * and the arguments.
 	 * 
 	 * @param input
 	 *        The Input.
 	 */
-	public Parameters(String input) {
+	public static void set(String input) {
 		
-		final int numberArguments = input.split("\\s+").length - 1;
+		Parameters.numberArguments = input.split("\\s+").length - 1;
 		
-		this.operation = input.split("\\s+")[0].toLowerCase();
+		Parameters.operation = input.split("\\s+")[0].toLowerCase();
 		
-		if (numberArguments >= 1) {
-			this.argumentOne = input.split("\\s+")[1];
+		if (Parameters.numberArguments >= 1) {
+			Parameters.argumentOne = input.split("\\s+")[1];
 		}
 		
-		if (numberArguments >= 2) {
-			argumentTwo = input.split("\\s+")[2];
+		if (Parameters.numberArguments >= 2) {
+			Parameters.argumentTwo = input.split("\\s+")[2];
 		}
 		
 	}
 	
-	public String getOperation() {
-		return this.operation;
+	public static int getNumberArguments() {
+		return Parameters.numberArguments;
 	}
 	
-	public String getArgumentOne() {
-		return this.argumentOne;
+	public static String getOperation() {
+		return Parameters.operation;
 	}
 	
-	public String getArgumentTwo() {
-		return this.argumentTwo;
+	public static String getArgumentOne() {
+		return Parameters.argumentOne;
+	}
+	
+	public static String getArgumentTwo() {
+		return Parameters.argumentTwo;
 	}
 	
 	public static boolean getFeatureUsed() {
