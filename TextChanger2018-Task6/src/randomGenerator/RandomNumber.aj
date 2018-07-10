@@ -5,10 +5,10 @@ import java.security.SecureRandom;
 import inputOutput.WriteOutput;
 import main.Parameters;
 
-public aspect RandomLetters {
+public aspect RandomNumber {
 	
 	/**
-	 * This aspect enables the feature "RandomLetters."
+	 * This aspect enables the feature "RandomNumber."
 	 * 
 	 * @param input
 	 *        The Input.
@@ -20,10 +20,8 @@ public aspect RandomLetters {
 			final String operation = Parameters.getOperation();
 			final String argumentOne = Parameters.getArgumentOne();
 			
-			if (operation.equalsIgnoreCase("RandomLetters")) {
-				
+			if (operation.equalsIgnoreCase("RandomNumber")) {
 				int length = 0;
-				String result = "";
 				
 				// convert the string to int. Checks if the input was a number at all.
 				try {
@@ -34,7 +32,7 @@ public aspect RandomLetters {
 							+ argumentOne + "\")");
 				}
 				
-				// raise warning if a nummber of length '0' was requested.
+				// rause warning if a nummber of length '0' was requested.
 				if (length == 0) {
 					WriteOutput.write("Error: Wrong Argument: Length of random number was defines as '0'.");
 				}
@@ -42,19 +40,24 @@ public aspect RandomLetters {
 					WriteOutput.write("Error: Wrong Argument: Length of random number was negativ. An positive number is required");
 				}
 				
-				// The alphabet of all possible characters.
-				final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+				// calculates a random number in SecureRandom format.
+				final SecureRandom secran = new SecureRandom();
 				
-				// Initialise the random generator
-				final SecureRandom random = new SecureRandom();
+				// the maximum value of the generated random number
+				final int maxRandom = (int) Math.pow(10, length); // 10 ** length;
 				
-				for (int indexCurrent = 0; indexCurrent < length; indexCurrent++) {
-					
-					char character = alphabet.charAt(random.nextInt(52));
-					result = result.concat(Character.toString(character));
-				}
+				// calculates an random number between 0 and the calculated maximum
+				// value
+				final int randomInt = secran.nextInt(maxRandom);
 				
-				WriteOutput.write(result);
+				// convert int to String
+				String randomStr = String.valueOf(randomInt);
+				
+				// add leading zeros, if necessary
+				randomStr = String.format("%0" + length + "d", randomInt);
+				
+				// returns the result
+				WriteOutput.write(randomStr);
 			}
 		}
 		

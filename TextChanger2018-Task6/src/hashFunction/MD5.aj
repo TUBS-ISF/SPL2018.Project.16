@@ -1,4 +1,5 @@
 package hashFunction;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -17,7 +18,8 @@ public aspect MD5 {
 	 */
 	after() returning (boolean ready): execution(boolean pluginReady()) {
 		
-		if (ready) {		
+		if (ready) {
+			
 			final String operation = Parameters.getOperation();
 			final String argumentOne = Parameters.getArgumentOne();
 			

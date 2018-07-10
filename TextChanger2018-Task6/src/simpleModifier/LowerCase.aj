@@ -3,27 +3,25 @@ package simpleModifier;
 import inputOutput.WriteOutput;
 import main.Parameters;
 
-public aspect UpperCase {
+public aspect LowerCase {
 	
 	/**
-	 * This aspect enables the feature "UpperCase."
+	 * This aspect enables the feature "LowerCase."
 	 * 
 	 * @param input
 	 *        The Input.
 	 */
 	after() returning (boolean ready): execution(boolean pluginReady()) {
 		
-		if (ready) {
+		if (ready) {		
 			
 			final String operation = Parameters.getOperation();
 			final String argumentOne = Parameters.getArgumentOne();
 			
-			if (operation.equalsIgnoreCase("UpperCase")) {
+			if (operation.equalsIgnoreCase("LowerCase")) {
+				final String inputLower = argumentOne.toLowerCase();
 				
-				final String inputUpper = argumentOne.toUpperCase();
-				
-				WriteOutput.write(inputUpper);
-
+				WriteOutput.write(inputLower);
 			}
 		}
 		

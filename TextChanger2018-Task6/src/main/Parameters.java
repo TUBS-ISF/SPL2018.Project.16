@@ -6,7 +6,6 @@ public class Parameters {
 	private static String operation;
 	private static String argumentOne;
 	private static String argumentTwo;
-	private static boolean featureUsed;
 	
 	/**
 	 * This class is used to set the parameters like the desired operation
@@ -45,18 +44,6 @@ public class Parameters {
 	
 	public static String getArgumentTwo() {
 		return Parameters.argumentTwo;
-	}
-	
-	public static boolean getFeatureUsed() {
-		return Parameters.featureUsed;
-	}
-	
-	public static void setFeatureUsedTrue() {
-		Parameters.featureUsed = true;
-	}
-	
-	public static void setFeatureUsedFalse() {
-		Parameters.featureUsed = false;
 	}
 	
 }

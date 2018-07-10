@@ -3,8 +3,6 @@ package main;
 import java.util.Arrays;
 
 import inputOutput.WriteOutput;
-import interfaces.ManageOneArgument;
-import interfaces.ManageTwoArguments;
 import main.PluginManager;
 
 public class InputManager {
@@ -31,9 +29,6 @@ public class InputManager {
 		final String operation = Parameters.getOperation();
 		final String argumentOne = Parameters.getArgumentOne();
 		final String argumentTwo = Parameters.getArgumentTwo();
-		
-		final ManageOneArgument manageOne;
-		final ManageTwoArguments manageTwo;
 		
 		// Basic operations ***************************************************
 		// Features provided by the program itself.

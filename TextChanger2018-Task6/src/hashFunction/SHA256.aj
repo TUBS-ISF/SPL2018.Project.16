@@ -1,12 +1,11 @@
 package hashFunction;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import javax.xml.bind.DatatypeConverter;
 
 import inputOutput.WriteOutput;
-import interfaces.ManageOneArgument;
-import interfaces.ManageTwoArguments;
 import main.Parameters;
 
 public aspect SHA256 {

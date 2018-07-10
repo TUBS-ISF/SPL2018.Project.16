@@ -5,10 +5,10 @@ import java.security.SecureRandom;
 import inputOutput.WriteOutput;
 import main.Parameters;
 
-public aspect RandomLetters {
+public aspect RandomString {
 	
 	/**
-	 * This aspect enables the feature "RandomLetters."
+	 * This aspect enables the feature "RandomString."
 	 * 
 	 * @param input
 	 *        The Input.
@@ -20,7 +20,7 @@ public aspect RandomLetters {
 			final String operation = Parameters.getOperation();
 			final String argumentOne = Parameters.getArgumentOne();
 			
-			if (operation.equalsIgnoreCase("RandomLetters")) {
+			if (operation.equalsIgnoreCase("RandomString")) {
 				
 				int length = 0;
 				String result = "";
@@ -43,14 +43,14 @@ public aspect RandomLetters {
 				}
 				
 				// The alphabet of all possible characters.
-				final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+				final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789";
 				
 				// Initialise the random generator
 				final SecureRandom random = new SecureRandom();
 				
 				for (int indexCurrent = 0; indexCurrent < length; indexCurrent++) {
 					
-					char character = alphabet.charAt(random.nextInt(52));
+					char character = alphabet.charAt(random.nextInt(61));
 					result = result.concat(Character.toString(character));
 				}
 				
