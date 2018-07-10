@@ -29,16 +29,6 @@ public aspect UpperCase {
 			}
 		}
 		
-		/*
-		if (operation.equalsIgnoreCase("UpperCase")) {
-			manageOne = new ManageOneArgument(new simpleModifier.UpperCase(), argumentOne);
-			result = manageOne.startCalculating();
-			WriteOutput.write(result);
-			
-			Parameters.setFeatureUsedTrue();
-		}
-		*/
-		
 	}
 
 }

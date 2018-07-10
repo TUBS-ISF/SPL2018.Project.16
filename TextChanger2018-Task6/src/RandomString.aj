@@ -11,23 +11,25 @@ public aspect RandomString {
 	 * @param input
 	 *        The Input.
 	 */
-	after(String input): execution(boolean startPlugins(String)) && args(input) {
+	after() returning (boolean ready): execution(boolean pluginReady()) {
 		
-		final String result;
-		
-		String operation = Parameters.getOperation();
-		String argumentOne = Parameters.getArgumentOne();
-		String argumentTwo = Parameters.getArgumentTwo();
-		
-		final ManageOneArgument manageOne;
-		final ManageTwoArguments manageTwo;
-		
-		if (operation.equalsIgnoreCase("RandomString")) {
-			manageOne = new ManageOneArgument(new randomGenerator.RandomString(), argumentOne);
-			result = manageOne.startCalculating();
-			WriteOutput.write(result);
+		if (ready) {		
+			final String result;
 			
-			Parameters.setFeatureUsedTrue();
+			String operation = Parameters.getOperation();
+			String argumentOne = Parameters.getArgumentOne();
+			String argumentTwo = Parameters.getArgumentTwo();
+			
+			final ManageOneArgument manageOne;
+			final ManageTwoArguments manageTwo;
+			
+			if (operation.equalsIgnoreCase("RandomString")) {
+				manageOne = new ManageOneArgument(new randomGenerator.RandomString(), argumentOne);
+				result = manageOne.startCalculating();
+				WriteOutput.write(result);
+				
+				Parameters.setFeatureUsedTrue();
+			}
 		}
 		
 	}

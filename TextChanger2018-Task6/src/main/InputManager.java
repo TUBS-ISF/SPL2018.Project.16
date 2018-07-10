@@ -36,6 +36,7 @@ public class InputManager {
 		final ManageTwoArguments manageTwo;
 		
 		// Basic operations ***************************************************
+		// Features provided by the program itself.
 		
 		if (operation.equals("exit") || operation.equals("quit") || operation.equals("q")) {
 			WriteOutput.write("Exit Program.");
@@ -52,68 +53,17 @@ public class InputManager {
 			return;
 		}
 		
-		// check for legit operation ******************************************
-		// (Plugin must exist, be enabled, have correct number arguments)
-		
-		// raise error if no arguments are given
-		// Important: This must be *below* the entries without any arguments!
-		/*
-		if (numberArguments == 0) {
-			return "Error: No arguments given.";
-		}
-		*/
-		
-		// check if the operation exists and is enabled
-		// otherwise return "Unknown command"
-		/*
-		if (!(pluginReady())) {
-			result = "Unknown command '" + operation
-					+ "'. Type 'help' for a list of all allowed operators.";
-			return result;
-		}
-		*/
-		
-		// check if the correct number of arguments is given
-		// otherwise return an error message
-		/*
-		if (!(pluginArgumentNumber())) {
-			result = "Error: " + operation + ": Wrong number of arguments given.\n"
-					+ "Arguments given: " + (numberArguments) + " Arguments required: "
-					+ PluginManager.pluginList().get(operation).get(1);
-			return result;
-		}
-		*/
-		
 		// Extended operations ************************************************
-		// Note: since the legitimitation of the operation is already checked
-		// above it's not checked again.
+		// Features provided by plugins.
 		
+		// Checks if the plugin is ready (exists, is enabled and correct number of arguments)
+		// Code itself is moced to the pointcut.
 		if (pluginReady()) {
 			return;
 		}
 		
-		final boolean startChecksHere = startPlugins(input);
-		
-		if (Parameters.getFeatureUsed()) {
-			// System.out.println("Feature used.");
-			Parameters.setFeatureUsedFalse();
-			return;
-		}
-		
-		// if something unexpected went wrong. (This code should normally never be reached...)
-		// result = "Something went wrong if you see this message...";
-		
-		// This can only be reached if an feature exists but had not been used.
-		// This in turn can only happen if it is disabled.
-		// result = "Error: Selected Feature exists, but is disabled.";
-		
 		return;
 		
-	}
-	
-	// This does nothing. It only exists to create an pointcut.
-	private static boolean startPlugins(String test) {
-		return true;
 	}
 	
 	// Check if plugin exists
@@ -169,28 +119,32 @@ public class InputManager {
 		try {
 			// convert to int, since originally stored as String.
 			argumentNumberRequired = Integer.parseInt(argumentNumberRequiredStr);
+			
 		} catch (NumberFormatException e) {
 			// Catch error if not a number
 			WriteOutput.write("Error: Illegal value for 'number of Arguments'.");
 			WriteOutput.write("Given: \"" + argumentNumberRequiredStr + "\"");
 			WriteOutput.write("Expected: An number like \"1\" for one argument. "
 					+ "(Don't forget the quotation marks.)");
+			
 			return false;
 		}
 		
 		// if operation has correct argument number
 		if (numberArgumentsGiven == argumentNumberRequired) {
 			return true;
+			
 		} else {
 			WriteOutput.write("Error: " + operation + ": Wrong number of arguments given.\n"
 					+ "Arguments given: " + (numberArgumentsGiven) + " Arguments required: "
 					+ argumentNumberRequiredStr);
+			return false;
 		}
-		return false;
 		
 	}
 	
 	// Check if the plugin exists, is enabled and has the currect number of arguments.
+	// If it is ready, it will be executed.
 	private static boolean pluginReady() {
 		
 		if (pluginExists() && pluginEnabled() && pluginArgumentNumber()) {
