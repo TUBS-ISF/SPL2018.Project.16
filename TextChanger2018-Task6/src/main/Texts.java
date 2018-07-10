@@ -26,7 +26,7 @@ public class Texts {
 	 * 
 	 * @return
 	 */
-	static String license() {
+	static void license() {
 		
 		final String seperator = System.getProperty("line.separator");
 		
@@ -43,7 +43,8 @@ public class Texts {
 				+ "You should have received a copy of the GNU General Public License" + seperator
 				+ "along with this program.  If not, see <https://www.gnu.org/licenses/>.";
 		
-		return license;
+		WriteOutput.write(license);
+		
 	}
 	
 	/**

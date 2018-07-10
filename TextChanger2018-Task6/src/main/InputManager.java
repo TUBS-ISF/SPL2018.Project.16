@@ -19,17 +19,18 @@ public class InputManager {
 	 *        The String read from the console.
 	 * @return The calculated result.
 	 */
-	static String manage(String input) {
+	static void manage(String input) {
 		
 		// Extract data from input and put it in the variables
+		// Correct usage is very important! Use it *exactly* once
+		// at the very beginning of each input!
 		Parameters.set(input);
-		int numberArguments = Parameters.getNumberArguments();
-		String operation = Parameters.getOperation();
-		String argumentOne = Parameters.getArgumentOne();
-		String argumentTwo = Parameters.getArgumentTwo();
 		
-		// initialise empty String for result.
-		final String result;
+		// Read the given parameters
+		final int numberArguments = Parameters.getNumberArguments();
+		final String operation = Parameters.getOperation();
+		final String argumentOne = Parameters.getArgumentOne();
+		final String argumentTwo = Parameters.getArgumentTwo();
 		
 		final ManageOneArgument manageOne;
 		final ManageTwoArguments manageTwo;
@@ -42,14 +43,13 @@ public class InputManager {
 		}
 		
 		if (operation.equals("license")) {
-			result = Texts.license();
-			return result;
+			Texts.license();
+			return;
 		}
 		
 		if (operation.equals("help")) {
 			Texts.help();
-			result = "";
-			return result;
+			return;
 		}
 		
 		// check for legit operation ******************************************
@@ -57,37 +57,47 @@ public class InputManager {
 		
 		// raise error if no arguments are given
 		// Important: This must be *below* the entries without any arguments!
+		/*
 		if (numberArguments == 0) {
 			return "Error: No arguments given.";
 		}
+		*/
 		
 		// check if the operation exists and is enabled
 		// otherwise return "Unknown command"
-		if (!(pluginExists(operation) && pluginEnabled(operation))) {
+		/*
+		if (!(pluginReady())) {
 			result = "Unknown command '" + operation
 					+ "'. Type 'help' for a list of all allowed operators.";
 			return result;
 		}
+		*/
 		
 		// check if the correct number of arguments is given
 		// otherwise return an error message
-		if (!(pluginArgumentNumber(operation, numberArguments))) {
+		/*
+		if (!(pluginArgumentNumber())) {
 			result = "Error: " + operation + ": Wrong number of arguments given.\n"
 					+ "Arguments given: " + (numberArguments) + " Arguments required: "
 					+ PluginManager.pluginList().get(operation).get(1);
 			return result;
 		}
+		*/
 		
 		// Extended operations ************************************************
 		// Note: since the legitimitation of the operation is already checked
 		// above it's not checked again.
+		
+		if (pluginReady()) {
+			return;
+		}
 		
 		final boolean startChecksHere = startPlugins(input);
 		
 		if (Parameters.getFeatureUsed()) {
 			// System.out.println("Feature used.");
 			Parameters.setFeatureUsedFalse();
-			return "";
+			return;
 		}
 		
 		// if something unexpected went wrong. (This code should normally never be reached...)
@@ -95,9 +105,9 @@ public class InputManager {
 		
 		// This can only be reached if an feature exists but had not been used.
 		// This in turn can only happen if it is disabled.
-		result = "Error: Selected Feature exists, but is disabled.";
+		// result = "Error: Selected Feature exists, but is disabled.";
 		
-		return result;
+		return;
 		
 	}
 	
@@ -107,18 +117,24 @@ public class InputManager {
 	}
 	
 	// Check if plugin exists
-	private static boolean pluginExists(String operation) {
+	private static boolean pluginExists() {
+		
+		final String operation = Parameters.getOperation();
 		
 		if (PluginManager.pluginList().containsKey(operation)) {
 			return true;
 		} else {
+			WriteOutput.write("Unknown command '" + operation
+					+ "'. Type 'help' for a list of all allowed operators.");
 			return false;
 		}
 	}
 	
 	// Check if plugin is enabled
 	// Keywords for enabled/disbaled can be changed here.
-	private static boolean pluginEnabled(String operation) {
+	private static boolean pluginEnabled() {
+		
+		final String operation = Parameters.getOperation();
 		
 		final String pluginStatus = PluginManager.pluginList().get(operation).get(0);
 		
@@ -127,10 +143,12 @@ public class InputManager {
 		
 		if (Arrays.asList(enabled).contains(pluginStatus)) {
 			return true;
+			
 		} else if (Arrays.asList(disabled).contains(pluginStatus)) {
 			return false;
+			
 		} else {
-			WriteOutput.write("Critical error: illegal Enabled/Disabled status for operation \""
+			WriteOutput.write("Critical error: Illegal Enabled/Disabled status for operation \""
 					+ operation + "\".");
 			WriteOutput.write("Given status: \"" + pluginStatus + "\"");
 			WriteOutput.write("Allowed for enabled: " + Arrays.toString(enabled));
@@ -140,7 +158,10 @@ public class InputManager {
 	}
 	
 	// Check if the correct number of arguments is given
-	private static boolean pluginArgumentNumber(String operation, int numberArgumentsGiven) {
+	private static boolean pluginArgumentNumber() {
+		
+		final String operation = Parameters.getOperation();
+		final int numberArgumentsGiven = Parameters.getNumberArguments();
 		
 		final String argumentNumberRequiredStr = PluginManager.pluginList().get(operation).get(1);
 		final int argumentNumberRequired;
@@ -161,8 +182,21 @@ public class InputManager {
 		if (numberArgumentsGiven == argumentNumberRequired) {
 			return true;
 		} else {
-			return false;
+			WriteOutput.write("Error: " + operation + ": Wrong number of arguments given.\n"
+					+ "Arguments given: " + (numberArgumentsGiven) + " Arguments required: "
+					+ argumentNumberRequiredStr);
 		}
+		return false;
+		
+	}
+	
+	// Check if the plugin exists, is enabled and has the currect number of arguments.
+	private static boolean pluginReady() {
+		
+		if (pluginExists() && pluginEnabled() && pluginArgumentNumber()) {
+			return true;
+		}
+		return false;
 	}
 	
 }

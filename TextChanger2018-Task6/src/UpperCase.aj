@@ -11,21 +11,22 @@ public aspect UpperCase {
 	 * @param input
 	 *        The Input.
 	 */
-	after(String input): execution(boolean startPlugins(String)) && args(input) {
+	after() returning (boolean ready): execution(boolean pluginReady()) {
 		
-		
-		String operation = Parameters.getOperation();
-		String argumentOne = Parameters.getArgumentOne();
-		String argumentTwo = Parameters.getArgumentTwo();
-		
-		final ManageOneArgument manageOne;
-		final ManageTwoArguments manageTwo;
-		
-		final String inputUpper = argumentOne.toUpperCase();
-		
-		if (operation.equalsIgnoreCase("UpperCase")) {
-			WriteOutput.write(inputUpper);
-			Parameters.setFeatureUsedTrue();
+		if (ready) {
+			String operation = Parameters.getOperation();
+			String argumentOne = Parameters.getArgumentOne();
+			String argumentTwo = Parameters.getArgumentTwo();
+			
+			final ManageOneArgument manageOne;
+			final ManageTwoArguments manageTwo;
+			
+			final String inputUpper = argumentOne.toUpperCase();
+			
+			if (operation.equalsIgnoreCase("UpperCase")) {
+				WriteOutput.write(inputUpper);
+				Parameters.setFeatureUsedTrue();
+			}
 		}
 		
 		/*

@@ -16,11 +16,15 @@ public class TextChanger2018 {
 		Texts.introduce();
 		
 		while (true) {
+			// reads the input.
 			String input = ReadInput.read();
 			
-			String result = InputManager.manage(input);
+			// manages the input. Results are printed by the underlaying methods.
+			InputManager.manage(input);
 			
-			WriteOutput.write(result);
+			// prints an empty line after the result.
+			WriteOutput.write("");
+			
 		}
 		
 	}
